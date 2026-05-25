@@ -1,4 +1,4 @@
-To add a newly created file:
+To add a newly created file or update file after a change is made:
 git add .
 git commit -m "Commit message"
 git push
