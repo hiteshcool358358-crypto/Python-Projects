@@ -1,0 +1,9 @@
+To add a newly created file:
+git add .
+git commit -m "Commit message"
+git push
+
+To delete files:
+git rm <file name> <file name>
+git commit -m "Commit message"
+git push
