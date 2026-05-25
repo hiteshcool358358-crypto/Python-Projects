@@ -4,12 +4,14 @@ also calculate the loyalty points earned by the customer.'''
 prices = []
 price = float(input("Enter the price of the item purchased= "))
 prices.append(price)
+#Creating a list of the prices of all the items purchased by the user.
 while price > 0:
     price = float(input("Enter the price of the item purchased= "))
     if price > 0:
         prices.append(price)
     else:
         break
+#Defining functions for calculating value and returning the output with a relevant message and in a formatted output.
 def bill_calculator():
     s = 0
     for i in prices:
@@ -42,6 +44,7 @@ def loyalty_points_calculator():
     else:
         dt = s
     print(f"Loyalty Points Earned: {dt // 10} points")
+#Printing the output in a formatted manner like a reciept.
 print("--- FINAL RECEIPT ---")
 c = 1
 for x in prices:
