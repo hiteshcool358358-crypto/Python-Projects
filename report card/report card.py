@@ -1,5 +1,5 @@
 #This program asks for the important infos of the student from the teacher and make the report card in a .csv file i.e., "report card.csv"
-#asking the infos
+#Asking the infos
 name = input("Enter the student's name: ")
 cl = input("Enter the student's class: ")
 roll = input("Enter the student's roll number: ")
@@ -9,7 +9,7 @@ chem = input("Enter the student's total marks in Chemistry: ")
 bio = input("Enter the student's total marks in Biology: ")
 his = input("Enter the student's total marks in History and Civics: ")
 geo = input("Enter the student's total marks in Geography: ")
-#creating the file
+#Creating the file
 file_path = r"C:\Python\report card\report card.csv"
 with open(file_path, "w") as f:
     #writing in the file
