@@ -59,23 +59,32 @@ while ans == "YES":
         num1 = float(input("Enter the number: "))
         print(f"The answer is {m.factorial(int(num1))}")
     elif operator.lower() == "sin":
-        num1 = float(input("Enter the number: "))
-        print(f"The sine of {num1} is {m.sin(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        print(f"The sine of {num1}° is {m.sin(m.radians(num1))}")
     elif operator.lower() == "cos":
-        num1 = float(input("Enter the number: "))
-        print(f"The cosine of {num1} is {m.cos(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        print(f"The cosine of {num1}° is {m.cos(m.radians(num1))}")
     elif operator.lower() == "tan":
-        num1 = float(input("Enter the number: "))
-        print(f"The tangent of {num1} is {m.tan(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        print(f"The tangent of {num1}° is {m.tan(m.radians(num1))}")
     elif operator.lower() == "cosec":
-        num1 = float(input("Enter the number: "))
-        print(f"The cosecant of {num1} is {1 / m.sin(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        try:
+            print(f"The cosecant of {num1}° is {1 / m.sin(m.radians(num1))}")
+        except ZeroDivisionError:
+            print("Undefined value (Division by Zero).")
     elif operator.lower() == "sec":
-        num1 = float(input("Enter the number: "))
-        print(f"The cosine of {num1} is {1 / m.cos(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        try:
+            print(f"The secant of {num1}° is {1 / m.cos(m.radians(num1))}")
+        except ZeroDivisionError:
+            print("Undefined value (Division by Zero).")
     elif operator.lower() == "cot":
-        num1 = float(input("Enter the number: "))
-        print(f"The cotangent of {num1} is {1 / m.tan(num1)}")
+        num1 = float(input("Enter the angle in degrees: "))
+        try:
+            print(f"The cotangent of {num1}° is {1 / m.tan(m.radians(num1))}")
+        except ZeroDivisionError:
+            print("Undefined value (Division by Zero).")
     else:
         print("Sorry. We cannot do calculation with that operator.")
     ans = input("Would you like to do more calculations? (YES/NO): ").upper()
