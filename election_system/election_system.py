@@ -1,9 +1,11 @@
 import streamlit as st
 
+#Welcoming the voters to the election system
 st.markdown("## Welcome to Jharkhand Elections 2026")
 st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_Jharkhand.svg/960px-Seal_of_Jharkhand.svg.png", width=200)
 col1, col2, col3, col4 = st.columns(4)
 
+#Initializing the vote counts for each party and NOTA in the session state
 if "VoteBJP" not in st.session_state:
     st.session_state.VoteBJP = 0
 if "VoteINC" not in st.session_state:
@@ -13,6 +15,7 @@ if "VoteJMM" not in st.session_state:
 if "VoteNOTA" not in st.session_state:
     st.session_state.VoteNOTA = 0
 
+#Displaying the parties and NOTA options for voting
 with col1:
     st.header("BJP")
     st.subheader("Batenge Toh Katenge!")
@@ -45,6 +48,7 @@ with col4:
     if button4:
         st.session_state.VoteNOTA += 1
 
+#Displaying the success message after voting for any party or NOTA
 if button1:
     st.success("Thank you for voting for BJP! It has been registered successfully.")
 elif button2:
@@ -54,12 +58,14 @@ elif button3:
 elif button4:
     st.success("Thank you for voting for NOTA! It has been registered successfully but it won't do anything. LOL you absolute moron! 🤡🤡🤣🤣")
 
+#Displaying the live election counting and the declaration button for the booth administrator
 st.markdown("## Live Election Counting")
 st.write(f"BJP: {st.session_state.VoteBJP} votes")
 st.write(f"INC: {st.session_state.VoteINC} votes")
 st.write(f"JMM: {st.session_state.VoteJMM} votes")
 st.write(f"NOTA: {st.session_state.VoteNOTA} votes")
 
+#The booth administrator can declare the results by pressing the declaration button. The results will be declared based on the highest votes received by any party or NOTA. If there is a tie or if NOTA wins, appropriate messages will be displayed.
 declaration = st.button("Declare Results (To be pressed only by the booth administrator)")
 if declaration:
     if st.session_state.VoteBJP > st.session_state.VoteINC and st.session_state.VoteBJP > st.session_state.VoteJMM and st.session_state.VoteBJP > st.session_state.VoteNOTA:
@@ -82,3 +88,5 @@ if declaration:
         st.error("The elections were cancelled due to some reasons. Will be held after further notification and notice.")
         st.markdown("# Elections closed! No more votes will be accepted.")
         st.markdown("Thank you for participating in the democratic process. See you in the next election!")
+
+#The app have been deployed. In order to use it click on this link: https://python-projects-kukvr9uubwsjsnmizdfqz5.streamlit.app/
