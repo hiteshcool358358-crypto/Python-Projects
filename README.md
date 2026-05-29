@@ -16,7 +16,7 @@ A comprehensive arithmetic and scientific computing tool that runs continuously 
 ### 📊 2. Automated Report Card Generator
 A script designed to streamline educational record-keeping. It processes student marks, computes averages, evaluates performance criteria, and automatically outputs a formatted report card overview directly in the console.
 
-👉 **[View detailed setup and features for this project here](./report%20card/)**
+👉 **[View detailed setup and features for this project here](./report_card/)**
 
 ### 🎲 3. Number Guessing Game
 An interactive, logic-based mini-game. The program generates a random number within a hidden range and guides the user to the correct answer by providing contextual hints (such as tracking high or low guesses) while keeping score of their attempts.
