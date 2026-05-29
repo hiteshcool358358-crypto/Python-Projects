@@ -28,7 +28,7 @@ with col2:
     st.header("INC")
     st.subheader("Congress ka Haath, Aam Aadmi ke Saath!")
     st.image("https://upload.wikimedia.org/wikipedia/commons/6/6e/INC_Flag_Official.jpg", width=150)
-    st.write("We will provide:\n1. Free electricity\n2. Religious harmony\n3. Anti-corruption measures")
+    st.write("We will provide:\n1. 24/7 electricity supply\n2. Religious harmony\n3. Anti-corruption measures")
     button2 = st.button("Vote for INC")
     if button2:
        st.session_state.VoteINC += 1
@@ -36,7 +36,7 @@ with col3:
     st.header("JMM")
     st.subheader("Jai Jharkhand!")
     st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Jharkhand_Mukti_Morcha_logo.svg/500px-Jharkhand_Mukti_Morcha_logo.svg.png", width=150)
-    st.write("We will provide:\n1. Free electricity\n2. Religious harmony\n3. Anti-corruption measures")
+    st.write("We will provide:\n1. Free electricity\n2. Clean water supply to all houses\n3. Anti-corruption measures")
     button3 = st.button("Vote for JMM")
     if button3:
         st.session_state.VoteJMM += 1
