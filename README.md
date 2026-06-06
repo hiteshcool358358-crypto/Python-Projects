@@ -11,8 +11,9 @@ Each program leverages native Python logic and standard libraries to deliver cle
 ### 🧮 1. Multi-Functional Calculator (`calculator.py`)
 A comprehensive arithmetic and scientific computing tool that runs continuously until closed by the user.
 * **Arithmetical Mode:** Supports basic operators (`+`, `-`, `*`, `/`), Floor Division (`//`), Exponents (`^`), Square Roots (`sqrt`), Cube Roots (`cbrt`), and Factorials (`fact`).
-* **Scientific Mode:** Handles core trigonometric functions including Sine (`sin`), Cosine (`cos`), Tangent (`tan`), along with their reciprocal counterparts Cosecant (`cosec`), Secant (`sec`), and Cotangent (`cot`).
+* **Scientific Mode:** Handles core trigonometric functions including Sine (`sin`), Cosine (`cos`), Tangent (`tan`), along with their reciprocal counterparts Cosecant (`cosec`), Secant (`sec`), and Cotangent (`cot`) 
 
+*Note: Its `streamlit` or `web app` version is also available.* **[Click here](./calculator_web_app/calculator_web_app.py)** to have a look at it.
 ### 📊 2. Automated Report Card Generator
 A script designed to streamline educational record-keeping. It processes student marks, computes averages, evaluates performance criteria, and automatically outputs a formatted report card overview directly in the console.
 
@@ -21,6 +22,7 @@ A script designed to streamline educational record-keeping. It processes student
 ### 🎲 3. Number Guessing Game
 An interactive, logic-based mini-game. The program generates a random number within a hidden range and guides the user to the correct answer by providing contextual hints (such as tracking high or low guesses) while keeping score of their attempts.
 
+#### And many more programs and projects are there. Fell free to have a look at them as well. I actively keep adding new peogram and Python Library notes like the **[Numpy Random notes](./python_lib_notes/numpy_random.ipynb)** and **[Matplotlib notes](./python_lib_notes/matplotlib_tutorial.ipynb)**.
 ---
 
 ## 🛠️ How to Run the Scripts
