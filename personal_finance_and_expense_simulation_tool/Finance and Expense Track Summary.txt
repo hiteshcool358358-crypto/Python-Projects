@@ -1,0 +1,19 @@
+#this is just a demo generated while the final execution before being pushed to github. this comment will not be generated the next time the file runs
+
+==================================================
+      FINANCIAL SIMULATION REPORT             
+==================================================
+
+Initial Starting Balance: ₹123400.00
+Fixed Monthly Income: ₹597400.96
+
+--------------------------------------------------
+  1,000-YEAR LIFETIME SIMULATION RESULTS          
+--------------------------------------------------
+
+Average Expected Ending Balance: ₹7201764.85
+Best-Case Scenario Ending Balance: ₹7232134.22
+Worst-Case Scenario Ending Balance: ₹7070368.44
+
+--------------------------------------------------
+Report generated successfully.
