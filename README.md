@@ -8,7 +8,7 @@ Each program leverages native Python logic and standard libraries to deliver cle
 
 ## 🚀 Projects Included
 
-### 🧮 1. Multi-Functional Calculator (`calculator.py`)
+### 🧮 1. Multi-Functional Calculator (`calculator.py` and `calculator_web_app.py`)
 A comprehensive arithmetic and scientific computing tool that runs continuously until closed by the user.
 * **Arithmetical Mode:** Supports basic operators (`+`, `-`, `*`, `/`), Floor Division (`//`), Exponents (`^`), Square Roots (`sqrt`), Cube Roots (`cbrt`), and Factorials (`fact`).
 * **Scientific Mode:** Handles core trigonometric functions including Sine (`sin`), Cosine (`cos`), Tangent (`tan`), along with their reciprocal counterparts Cosecant (`cosec`), Secant (`sec`), and Cotangent (`cot`) 
