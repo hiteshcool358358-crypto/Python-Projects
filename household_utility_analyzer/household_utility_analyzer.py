@@ -1,5 +1,3 @@
-#note for the user: some errors still persists in the and of the program and also, more stuff like graph plotting is still pending to be done (as of 11.06.2026)
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -37,8 +35,5 @@ bills = np.array([])
 bills = np.append(bills, bill)
 
 file_path = r"C:\Python\household_utility_analyzer\bills.txt"
-with open(file_path, "w") as f:
-    c = 0
-    for i in bill:
-        print(f"Month{c}: {i}")
-        c += 1
+with open(file_path, "a") as f:
+    f.write(str(bill))
