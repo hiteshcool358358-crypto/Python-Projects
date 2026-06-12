@@ -31,9 +31,6 @@ else:
 print(f"\nNet demand: ₹{bill:.2f}")
 print(f"Your bill after applying a discount of 5%: ₹{bill - (0.05 * bill):.2f}")
 
-bills = np.array([])
-bills = np.append(bills, bill)
-
 file_path = r"C:\Python\household_utility_analyzer\bills.txt"
 with open(file_path, "a") as f:
-    f.write(str(bill))
+    f.write(str(bill - (0.05 * bill) + "\n")
