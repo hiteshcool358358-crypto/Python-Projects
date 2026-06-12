@@ -5,7 +5,7 @@ print("\nWelcome to the electricity bill calculator exclusively by JBVNL\n")
 
 print("Billing Criteria:\nFirst 100 units = ₹5 per unit\nNext 100 units (101 to 200) = ₹7 per unit\nMore than 200 units = ₹10 per unit")
 
-units = input("\nEnter the no. of units consumed by your household this month: ")
+units = input("\nEnter the no. of units consumed by your household this month: ₹")
 
 try:
     units = float(units)
@@ -31,11 +31,6 @@ else:
 print(f"\nNet demand: ₹{bill:.2f}")
 print(f"Your bill after applying a discount of 5%: ₹{bill - (0.05 * bill):.2f}")
 
-bills = np.array([])
-bills = np.append(bills, bill)
 file_path = r"C:\Python\household_utility_analyzer\bills.txt"
-with open(file_path, "w") as f:
-    c = 0
-    for i in bill:
-        print(f"Month{c}: {i}")
-        c += 1
+with open(file_path, "a") as f:
+    f.write(str(bill))
