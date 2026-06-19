@@ -1,0 +1,50 @@
+[
+  {
+    "Timestamp": "2026-06-19T08:00:00",
+    "Intersection_ID": "INT_101",
+    "Vehicle_Count": 120.0,
+    "Average_Speed_kmh": 45.2,
+    "CO2_Level_ppm": 410.5,
+    "Weather_Condition": "Sunny"
+  },
+  {
+    "Timestamp": "2026-06-19T09:00:00",
+    "Intersection_ID": "INT_101",
+    "Vehicle_Count": null,
+    "Average_Speed_kmh": 38.0,
+    "CO2_Level_ppm": 435.0,
+    "Weather_Condition": "Sunny"
+  },
+  {
+    "Timestamp": "2026-06-19T08:00:00",
+    "Intersection_ID": "INT_102",
+    "Vehicle_Count": 85.0,
+    "Average_Speed_kmh": 55.0,
+    "CO2_Level_ppm": 9999.0,
+    "Weather_Condition": null
+  },
+  {
+    "Timestamp": "2026-06-19T09:00:00",
+    "Intersection_ID": "INT_102",
+    "Vehicle_Count": 95.0,
+    "Average_Speed_kmh": 12.5,
+    "CO2_Level_ppm": 580.2,
+    "Weather_Condition": "Rainy"
+  },
+  {
+    "Timestamp": "2026-06-19T10:00:00",
+    "Intersection_ID": "INT_101",
+    "Vehicle_Count": 145.0,
+    "Average_Speed_kmh": 30.1,
+    "CO2_Level_ppm": 460.0,
+    "Weather_Condition": null
+  },
+  {
+    "Timestamp": "2026-06-19T10:00:00",
+    "Intersection_ID": "INT_102",
+    "Vehicle_Count": null,
+    "Average_Speed_kmh": 40.5,
+    "CO2_Level_ppm": 9999.0,
+    "Weather_Condition": "Rainy"
+  }
+]
