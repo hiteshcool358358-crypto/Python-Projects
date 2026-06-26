@@ -1,0 +1,6 @@
+Appliance,Power Rating (Watts),Behaviour
+Fridge,1500,constant
+Gyeser,1000,variable
+Induction cooktop,2000,variable
+TV,1500,variable
+LED Bulb (Hall),20,constant
