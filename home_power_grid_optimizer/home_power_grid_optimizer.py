@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import datetime as d
+import matplotlib.pyplot as plt
 
 data1 = r"C:\Python\home_power_grid_optimizer\home_power_grid_optimizer.csv"
 
@@ -51,9 +53,42 @@ for i in range(0, 24):
     if hourly_watts > 3000:
         for z in range(len(apps)):
             if hourly_watts > 3000:
-                if behaves[z] == "variable":
+                if behaves[z] == "variable" and temps[i] > 35:
                     hourly_watts -= rates[z]
                     print(f"[{time[i]}] Alert: Peak load exceeded! Automatically shutting down {apps[z]} to save power.")
-        hourly_bill = hourly_watts * cost[i]
-        HourlyPowerConsumption = np.append(HourlyPowerConsumption, hourly_watts)
-        HourlyFinancialCost = np.append(HourlyFinancialCost, hourly_bill)
+    hourly_bill = hourly_watts * cost[i]
+    HourlyPowerConsumption = np.append(HourlyPowerConsumption, hourly_watts)
+    HourlyFinancialCost = np.append(HourlyFinancialCost, hourly_bill)
+
+SummaryDf = pd.DataFrame({
+    "Hour": time,
+    "Temperature": temps,
+    "Optimized Load (Watts)": HourlyPowerConsumption,
+    "Hourly Cost (₹)": HourlyFinancialCost
+})
+
+print("\n" + "="*40)
+print("       DAILY ENERGY OPTIMIZATION REPORT       ")
+print("="*40)
+print(SummaryDf.to_string(index=False))
+print("="*40)
+print(f"Total Daily Energy Consumed: {HourlyPowerConsumption.sum():,.2f} Watts")
+print(f"Total Daily Electricity Cost: ₹{HourlyFinancialCost.sum():,.2f}")
+print("="*40)
+
+TodayDate = d.datetime.now().strftime("%d-%m-%Y")
+
+report_path = f"C:\Python\home_power_grid_optimizer\report_{TodayDate}.csv"
+
+SummaryDf.to_csv(report_path, index = False)
+print(f"A report has been created for {TodayDate}.")
+
+plt.plot(SummaryDf["Hour"], SummaryDf["Optimized Load (Watts)"], "o-b")
+
+plt.xlabel("Hours/Time")
+plt.ylabel("Optimized Load (Watts)")
+plt.title("24-Hour Home Power Consumption & Temperature Profile", fontsize=14, fontweight='bold')
+plt.graph(alpha = 0.6)
+plt.legend(loc='upper left')
+
+plt.show()
