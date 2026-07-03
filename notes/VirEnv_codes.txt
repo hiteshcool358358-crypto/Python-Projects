@@ -1,0 +1,2 @@
+To activate (myfirstproject):
+myfirstproject\Scripts\activate
