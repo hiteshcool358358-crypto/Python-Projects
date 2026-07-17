@@ -1,0 +1,2 @@
+streamlit file execution:
+    py -m streamlit run <file name>
