@@ -12,8 +12,8 @@ with st.sidebar:
         url = "https://api.exchangerate-api.com/v4/latest/INR"
     elif def_curr == "JPY":
         url = "https://api.exchangerate-api.com/v4/latest/JPY"
-    elif def_curr == "JBP":
-        url = "https://api.exchangerate-api.com/v4/latest/JBP"
+    elif def_curr == "GBP":
+        url = "https://api.exchangerate-api.com/v4/latest/GBP"
     elif def_curr == "EUR":
         url = "https://api.exchangerate-api.com/v4/latest/EUR"
     elif def_curr == "PKR":
