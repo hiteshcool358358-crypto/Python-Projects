@@ -14,6 +14,5 @@ ins = st.text_input("Enter inspector's name here")
 stat = st.text_input("Enter rework/rejection status here")
 
 if st.button("Register info."):
-    file_path = r"C:\Python\sonico_project\MIS Report.csv"
-    with open(file_path, "a") as f:
+    with open("MIS Report.csv", "a") as f:
         f.write(f"\n{date},{shift},{part},{proc},{defect},{obs},{qty},{op},{ins},{stat}")
