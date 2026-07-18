@@ -3,6 +3,11 @@ import requests
 
 st.title("Live Currency Converter")
 
+with st.expander("Expand for help"):
+    st.markdown("""
+                - You need to enter your own currency in the sidebar
+                - You should be connected to an internet or ethernet connection
+                - If it doesn't work, try using it with a vpn""")
 with st.sidebar:
     st.markdown("# Select Your Currency")
     def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["USD", "INR", "JPY", "GBP", "EUR", "PKR"])
