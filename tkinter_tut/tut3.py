@@ -9,7 +9,7 @@ photo1 = PhotoImage(file=r"C:\Users\Mukesh Kumar\OneDrive\Pictures\Screenshots\S
 lab1 = Label(image=photo1)
 lab1.pack()
 
-#for JPG images
+#for JPEG images
 photo2 = Image.open(r"C:\Users\Mukesh Kumar\OneDrive\Pictures\Screenshots\Screenshot 2026-07-08 125327.jpeg")
 image2 = ImageTk.PhotoImage(photo2)
 
