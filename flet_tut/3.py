@@ -3,7 +3,7 @@ import flet as ft
 def main(page: ft.Page):
     page.window.width = 350
     page.window.height = 600
-    page.title = "Text Field Widget"
+    page.title = "Text Field Widget P-1"
     page.window.always_on_top = True
     page.theme_mode = "light"
     # page.theme_mode = "system"
