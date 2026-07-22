@@ -1,2 +1,5 @@
 streamlit file execution:
     py -m streamlit run <file name>
+
+flet app or file execution:
+    flet run <file name>
