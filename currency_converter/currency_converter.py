@@ -11,18 +11,7 @@ with st.expander("Expand for help"):
 with st.sidebar:
     st.markdown("# Select Your Currency")
     def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["USD", "INR", "JPY", "GBP", "EUR", "PKR"])
-    if def_curr == "USD":
-        url = "https://api.exchangerate-api.com/v4/latest/USD"
-    elif def_curr == "INR":
-        url = "https://api.exchangerate-api.com/v4/latest/INR"
-    elif def_curr == "JPY":
-        url = "https://api.exchangerate-api.com/v4/latest/JPY"
-    elif def_curr == "GBP":
-        url = "https://api.exchangerate-api.com/v4/latest/GBP"
-    elif def_curr == "EUR":
-        url = "https://api.exchangerate-api.com/v4/latest/EUR"
-    elif def_curr == "PKR":
-        url = "https://api.exchangerate-api.com/v4/latest/PKR"
+    url = f"https://api.exchangerate-api.com/v4/latest/{def_curr}"
 
 def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
 conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["USD", "INR", "JPY", "GBP", "EUR", "PKR"])
