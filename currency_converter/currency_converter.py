@@ -12,10 +12,10 @@ with st.sidebar:
     st.markdown("# Select Your Currency")
     def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "GBP", "Euro", "Pakistani Rupee"])
 
-    if def_curr == "":
-        pass
-    elif def_curr == "":
-        pass
+    if def_curr == "United States Dollar":
+        url = "https://api.exchangerate-api.com/v4/latest/USD"
+    elif def_curr == "Indian Rupee":
+        url = "https://api.exchangerate-api.com/v4/latest/INR"
     elif def_curr == "":
         pass
     elif def_curr == "":
