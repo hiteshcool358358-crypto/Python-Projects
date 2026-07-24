@@ -16,14 +16,14 @@ with st.sidebar:
         url = "https://api.exchangerate-api.com/v4/latest/USD"
     elif def_curr == "Indian Rupee":
         url = "https://api.exchangerate-api.com/v4/latest/INR"
-    elif def_curr == "":
-        pass
-    elif def_curr == "":
-        pass
-    elif def_curr == "":
-        pass
-    elif def_curr == "":
-        pass
+    elif def_curr == "Japanese Yen":
+        url = "https://api.exchangerate-api.com/v4/latest/JPY"
+    elif def_curr == "GBP":
+        url = "https://api.exchangerate-api.com/v4/latest/GBP"
+    elif def_curr == "Euro":
+        url = "https://api.exchangerate-api.com/v4/latest/EUR"
+    elif def_curr == "Pakistani Rupee":
+        url = "https://api.exchangerate-api.com/v4/latest/PKR"
 
 def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
 conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "GBP", "Euro", "Pakistani Rupee"])
