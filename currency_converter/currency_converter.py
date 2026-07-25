@@ -29,23 +29,23 @@ def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
 conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
 
 if conv_curr == "United States Dollar":
-    conv_curr = "USD"   
+    new_curr = "USD"   
 elif conv_curr == "Indian Rupee":
-    conv_curr = "INR"  
+    new_curr = "INR"  
 elif conv_curr == "Japanese Yen":
-    conv_curr = "JPY"
+    new_curr = "JPY"
 elif conv_curr == "Great British Pound":
-    conv_curr = "GBP"
+    new_curr = "GBP"
 elif conv_curr == "Euro":
-    conv_curr = "EUR"
+    new_curr = "EUR"
 elif conv_curr == "Pakistani Rupee":
-    conv_curr = "PKR"
+    new_curr = "PKR"
 
 if st.button("Convert"):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        rate = data["rates"][conv_curr]
+        rate = data["rates"][new_curr]
         amt = def_amt * rate
         st.success("Conversion successful")
         st.write(f"{def_amt:.2f} {def_curr} = {amt:.2f} {conv_curr}")
