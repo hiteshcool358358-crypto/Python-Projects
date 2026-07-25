@@ -10,7 +10,7 @@ with st.expander("Expand for help"):
                 - If it doesn't work, try using it with a vpn""")
 with st.sidebar:
     st.markdown("# Select Your Currency")
-    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "GBP", "Euro", "Pakistani Rupee"])
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
 
     if def_curr == "United States Dollar":
         url = "https://api.exchangerate-api.com/v4/latest/USD"
@@ -18,7 +18,7 @@ with st.sidebar:
         url = "https://api.exchangerate-api.com/v4/latest/INR"
     elif def_curr == "Japanese Yen":
         url = "https://api.exchangerate-api.com/v4/latest/JPY"
-    elif def_curr == "GBP":
+    elif def_curr == "Great British Pound":
         url = "https://api.exchangerate-api.com/v4/latest/GBP"
     elif def_curr == "Euro":
         url = "https://api.exchangerate-api.com/v4/latest/EUR"
@@ -26,7 +26,20 @@ with st.sidebar:
         url = "https://api.exchangerate-api.com/v4/latest/PKR"
 
 def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
-conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "GBP", "Euro", "Pakistani Rupee"])
+conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
+
+if conv_curr == "United States Dollar":
+    conv_curr = "USD"   
+elif conv_curr == "Indian Rupee":
+    conv_curr = "INR"  
+elif conv_curr == "Japanese Yen":
+    conv_curr = "JPY"
+elif conv_curr == "Great British Pound":
+    conv_curr = "GBP"
+elif conv_curr == "Euro":
+    conv_curr = "EUR"
+elif conv_curr == "Pakistani Rupee":
+    conv_curr = "PKR"
 
 if st.button("Convert"):
     response = requests.get(url)
