@@ -15,16 +15,22 @@ with st.sidebar:
     def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
 
     if def_curr == "United States Dollar":
+        short_curr = "USD"
         url = "https://api.exchangerate-api.com/v4/latest/USD"
     elif def_curr == "Indian Rupee":
+        short_curr = "INR"
         url = "https://api.exchangerate-api.com/v4/latest/INR"
     elif def_curr == "Japanese Yen":
+        short_curr = "JPY"
         url = "https://api.exchangerate-api.com/v4/latest/JPY"
     elif def_curr == "Great British Pound":
+        short_curr = "GBP"
         url = "https://api.exchangerate-api.com/v4/latest/GBP"
     elif def_curr == "Euro":
+        short_curr = "EUR"
         url = "https://api.exchangerate-api.com/v4/latest/EUR"
     elif def_curr == "Pakistani Rupee":
+        short_curr = "PKR"
         url = "https://api.exchangerate-api.com/v4/latest/PKR"
 
 def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
@@ -50,6 +56,6 @@ if st.button("Convert"):
         rate = data["rates"][new_curr]
         amt = def_amt * rate
         st.success("Conversion successful")
-        st.write(f"{def_amt:.2f} {def_curr} = {amt:.2f} {conv_curr}")
+        st.write(f"{def_amt:.2f} {short_curr} = {amt:.2f} {new_curr}")
     else:
         st.error("Conversion Failed!")
