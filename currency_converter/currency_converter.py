@@ -12,29 +12,41 @@ with st.expander("Expand for help"):
                 """)
 with st.sidebar:
     st.markdown("# Select Your Currency")
-    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"])
 
     if def_curr == "United States Dollar":
         short_curr = "USD"
-        url = "https://api.exchangerate-api.com/v4/latest/USD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
     elif def_curr == "Indian Rupee":
         short_curr = "INR"
-        url = "https://api.exchangerate-api.com/v4/latest/INR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
     elif def_curr == "Japanese Yen":
         short_curr = "JPY"
-        url = "https://api.exchangerate-api.com/v4/latest/JPY"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
     elif def_curr == "Great British Pound":
         short_curr = "GBP"
-        url = "https://api.exchangerate-api.com/v4/latest/GBP"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
     elif def_curr == "Euro":
         short_curr = "EUR"
-        url = "https://api.exchangerate-api.com/v4/latest/EUR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
     elif def_curr == "Pakistani Rupee":
         short_curr = "PKR"
-        url = "https://api.exchangerate-api.com/v4/latest/PKR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "UAE Dhiram":
+        short_curr = "AED"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Singapore Dollar":
+        short_curr = "SGD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Canadian Dollar":
+        short_curr = "CAD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Australian Dollar":
+        short_curr = "AUD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
 
 def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
-conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee"])
+conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"])
 
 if conv_curr == "United States Dollar":
     new_curr = "USD"   
@@ -48,6 +60,14 @@ elif conv_curr == "Euro":
     new_curr = "EUR"
 elif conv_curr == "Pakistani Rupee":
     new_curr = "PKR"
+elif conv_curr == "UAE Dhiram":
+    new_curr = "AED"
+elif conv_curr == "Singapore Dollar":
+    new_curr = "SGD"
+elif conv_curr == "Canadian Dollar":
+    new_curr = "CAD"
+elif conv_curr == "Australian Dollar":
+    new_curr = "AUD"
 
 if st.button("Convert"):
     response = requests.get(url)
