@@ -22,7 +22,7 @@ A script designed to streamline educational record-keeping. It processes student
 ### 🎲 3. Number Guessing Game
 An interactive, logic-based mini-game. The program generates a random number within a hidden range and guides the user to the correct answer by providing contextual hints (such as tracking high or low guesses) while keeping score of their attempts.
 
-#### And many more programs and projects are there. Fell free to have a look at them as well. I actively keep adding new peogram and Python Library notes like the **[Numpy Random notes](./python_lib_notes/numpy_random.ipynb)** and **[Matplotlib notes](./python_lib_notes/matplotlib_tutorial.ipynb)**.
+#### And many more programs and projects are there. Fell free to have a look at them as well. I actively keep adding new peogram and Python Library notes like the **[Numpy Random notes](./python_lib_notes/numpy_random.ipynb)**, **[Matplotlib notes](./python_lib_notes/matplotlib_tutorial.ipynb)** and **[other library notes](./python_lib_notes)**.
 ---
 
 ## 🛠️ How to Run the Scripts
