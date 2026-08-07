@@ -1,6 +1,18 @@
 import streamlit as st
 import math as m
 
+def about():
+    st.title("Basic and Advanced Calculator")
+    st.subheader("This is a calculator supporting  Arithematical, Algebraic and Trigonometric operations")  
+    with st.expander("Expand for help"):
+        st.markdown("""
+                    #### Guide:
+                    - Select the kind of operation from the sidebar
+                    - You can carry out operations like arithematical, algebraic and trigonometric
+                    - You can check the source code by clicking on my github profile showing at the right corner of the page
+                    - A quality product by Hitesh Kumar
+                    """)
+
 def arithematic():
     st.title("Basic and Advanced Calculator")
     st.subheader("This is a calculator supporting  Arithematical, Algebraic and Trigonometric operations")    
@@ -126,6 +138,7 @@ def trigonometric():
             st.text(f"Rating given by the user: {rating}")
 
 pages = [
+    st.Page(about, title="About", icon="🔢"),
     st.Page(arithematic, title="Arithematical Operations", icon="➕"),
     st.Page(algebraic, title="Algebraic Operations", icon="🔍"),
     st.Page(trigonometric, title="Trigonometric Operations", icon="📐")
