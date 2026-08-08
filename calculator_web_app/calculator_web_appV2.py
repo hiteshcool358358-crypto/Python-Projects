@@ -1,5 +1,6 @@
 import streamlit as st
 import math as m
+import requests
 
 def about():
     st.title("Basic and Advanced Calculator", text_alignment="center")
@@ -151,8 +152,85 @@ def bmi():
             st.text("You are obese.")
 
 def curr_conv():
+    st.title("Currency Converter 💱")
+
+    with st.expander("Expand for help"):
+        st.markdown("""
+                    ##### Guide:
+                    - You should be connected to an internet or ethernet connection
+                    - If it doesn't work, try using it with a vpn
+                    """)
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="first dropdown")
+
+    if def_curr == "United States Dollar":
+        short_curr = "USD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Indian Rupee":
+        short_curr = "INR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
+    elif def_curr == "Japanese Yen":
+        short_curr = "JPY"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Great British Pound":
+        short_curr = "GBP"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Euro":
+        short_curr = "EUR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Pakistani Rupee":
+        short_curr = "PKR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "UAE Dhiram":
+        short_curr = "AED"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Singapore Dollar":
+        short_curr = "SGD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Canadian Dollar":
+        short_curr = "CAD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Australian Dollar":
+        short_curr = "AUD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+
+    def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
+    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="second dropdown")
+
+    if conv_curr == "United States Dollar":
+        new_curr = "USD"   
+    elif conv_curr == "Indian Rupee":
+        new_curr = "INR"  
+    elif conv_curr == "Japanese Yen":
+        new_curr = "JPY"
+    elif conv_curr == "Great British Pound":
+        new_curr = "GBP"
+    elif conv_curr == "Euro":
+        new_curr = "EUR"
+    elif conv_curr == "Pakistani Rupee":
+        new_curr = "PKR"
+    elif conv_curr == "UAE Dhiram":
+        new_curr = "AED"
+    elif conv_curr == "Singapore Dollar":
+        new_curr = "SGD"
+    elif conv_curr == "Canadian Dollar":
+        new_curr = "CAD"
+    elif conv_curr == "Australian Dollar":
+        new_curr = "AUD"
+
+    if st.button("Convert"):
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            rate = data["rates"][new_curr]
+            amt = def_amt * rate
+            st.success("Conversion successful")
+            st.write(f"{def_amt:.2f} {short_curr} = {amt:.2f} {new_curr}")
+        else:
+            st.error("Conversion Failed!")
+
+def len_conv():
     st.markdown("""
-                # The page is under construction 🚧
+                # This page or app is under construction 🚧
                 """)
 
 def future_ideas():
@@ -164,7 +242,7 @@ def future_ideas():
                 - Will be adding scientific functions like absolute and fix for Java and QBasic programmers   
                 - People will be able to carry out logarithmic operations in a few months
                 - People will be able to plot graphs like line graph, bar graph and pie charts by providing data here
-                - Inbuilt currency converter and volume converter will also be added to the web app. You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
+                - ~~Inbuilt currency converter and volume converter will also be added to the web app.~~ You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
                 - Other converters that will be added to the app are:
                     1. Length
                     2. Weight and Mass
@@ -191,6 +269,7 @@ pages = [
     st.Page(trigonometric, title="Trigonometric Operations", icon="📐"),
     st.Page(bmi, title="BMI Calculator", icon="⚖️"),
     st.Page(curr_conv, title="Currency Converter", icon="💱"),
+    st.Page(len_conv, title="Length Converter", icon="📏"),
     st.Page(future_ideas, title="Upcomg Features", icon="🕒")
 ]
 
