@@ -163,7 +163,7 @@ def future_ideas():
 
                 These features will be coming out and be released shortly. The work has been started at the backend. Meanwhile you can try out other web apps created by me like:
                 - Currency converter - https://currency-converter1714.streamlit.app
-                - Calculator V1 - https://pyhton-projects-calculator.streamlit.app
+                - Calculator V1 - https://python-projects-calculator.streamlit.app
                 """)
 
 pages = [
