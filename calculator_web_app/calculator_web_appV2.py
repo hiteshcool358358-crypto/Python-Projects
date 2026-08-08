@@ -2,7 +2,7 @@ import streamlit as st
 import math as m
 
 def about():
-    st.title("Basic and Advanced Calculator")
+    st.title("Basic and Advanced Calculator", text_alignment="center")
     with st.expander("Expand for help"):
         st.markdown("""
                     #### Guide:
@@ -16,7 +16,7 @@ def about():
     st.markdown("A quality product created by **Hitesh Kumar**.")
 
 def arithematic():
-    st.title("Arithematic Calculator")
+    st.title("Arithematic Calculator", text_alignment="center")
     st.text("You can carry out the supported arithematical operation here by selecting th operand from the dropdown appearing below")    
     oper = st.selectbox("Enter your operand here:", ["Operand","Addition", "Subtraction", "Mulitplication", "Division"])
     if oper == "Addition":
@@ -52,7 +52,7 @@ def arithematic():
             
 
 def algebraic():
-    st.title("Algebraic Calculator")
+    st.title("Algebraic Calculator", text_alignment="center")
     st.text("You can carry out the supported algebraic operation here by selecting th operand from the dropdown appearing below")    
     oper = st.selectbox("Enter your operand here:", ["Operand","Exponents", "Square root", "Cube root", "Factorial"])
     if oper == "Exponents":
@@ -84,7 +84,7 @@ def algebraic():
     st.button("Register rating")
 
 def trigonometric():
-    st.title("Trigonometric Calculator")
+    st.title("Trigonometric Calculator", text_alignment="center")
     st.text("You can carry out all the trigonometric functions here by selecting an operand appearing in the dopdown menu below")    
     oper = st.selectbox("Enter your operand here:", ["Operand", "Sine", "Cosine", "Tangent", "Cosecant", "Secant", "Cotangent"])
     if oper == "Sine":
@@ -133,16 +133,34 @@ def trigonometric():
     st.button("Register rating")
 
 def bmi():
+    st.title("BMI Calculator", text_alignment="center")
+    st.text("Enter your wight in kgs and height in cms below to get to know your BMI. Our app will automatically tell that whether you are underweight, overweight, normal or obese")
+    weight = float(st.number_input("Enter your weight in kgs", min_value=0.00))
+    height = float(st.number_input("Enter your height in cms", min_value=0.00))
+    if st.button("Calculate BMI"):
+        bmi = round((weight/(height / 100) ** 2), 2)
+        st.success("Your BMI has been calculated!")
+        st.text(f"Your BMI is {bmi}")
+        if bmi<18.5:
+            st.text("You are underweight.")
+        elif bmi>=18.5 and bmi<25:
+            st.text("You are normal weight.")
+        elif bmi>=25 and bmi<30:
+            st.text("You are overweight.")
+        else:
+            st.text("You are obese.")
+
+def curr_conv():
     st.markdown("""
-                # Page under construction right now 🚧
+                # The page is under construction 🚧
                 """)
 
 def future_ideas():
     st.markdown("""
                 ### Future and upcoming plans (as of 08-08-2026)
 
-                - Have decided to add an inbuilt bmi calculator
-                - Scientific opeartions like mod will be added
+                - ~~Have decided to add an inbuilt bmi calculator~~
+                - Scientific operations like mod will be added
                 - Will be adding scientific functions like absolute and fix for Java and QBasic programmers   
                 - People will be able to carry out logarithmic operations in a few months
                 - People will be able to plot graphs like line graph, bar graph and pie charts by providing data here
@@ -172,6 +190,7 @@ pages = [
     st.Page(algebraic, title="Algebraic Operations", icon="🔍"),
     st.Page(trigonometric, title="Trigonometric Operations", icon="📐"),
     st.Page(bmi, title="BMI Calculator", icon="⚖️"),
+    st.Page(curr_conv, title="Currency Converter", icon="💱"),
     st.Page(future_ideas, title="Upcomg Features", icon="🕒")
 ]
 
