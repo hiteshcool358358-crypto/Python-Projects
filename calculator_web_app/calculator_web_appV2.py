@@ -7,11 +7,13 @@ def about():
     with st.expander("Expand for help"):
         st.markdown("""
                     #### Guide:
-                    - You can select the kind of operation you want to carry out from the sidebar
-                    - Operations supported as of 08-08-2026 are:
+                    - You can select the kind of operation you want to carry out or the feature you want to use from the sidebar
+                    - Operations and features provided as of 08-08-2026 are:
                         1. Arithematical operations
                         2. Algebraic operations
                         3. Trigonometric operations
+                        4. BMI Calculator
+                        5. Currency Converter
                     - You can check the source code by clicking on the github icon appearing on the ribbon right at the top right corner
                     """)
     st.markdown("A quality product created by **Hitesh Kumar**.")
