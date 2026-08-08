@@ -139,7 +139,7 @@ def bmi():
 
 def future_ideas():
     st.markdown("""
-                ### Future and upcoming plans
+                ### Future and upcoming plans (as of 08-08-2026)
 
                 - Have decided to add an inbuilt bmi calculator
                 - Scientific opeartions like mod will be added
