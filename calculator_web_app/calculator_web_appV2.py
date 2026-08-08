@@ -151,6 +151,9 @@ def bmi():
         else:
             st.text("You are obese.")
 
+    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
+    st.button("Register rating")
+
 def curr_conv():
     st.title("Currency Converter 💱")
 
@@ -228,6 +231,9 @@ def curr_conv():
         else:
             st.error("Conversion Failed!")
 
+    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
+    st.button("Register rating")
+
 def len_conv():
     st.markdown("""
                 # This page or app is under construction 🚧
@@ -270,7 +276,7 @@ pages = [
     st.Page(bmi, title="BMI Calculator", icon="⚖️"),
     st.Page(curr_conv, title="Currency Converter", icon="💱"),
     st.Page(len_conv, title="Length Converter", icon="📏"),
-    st.Page(future_ideas, title="Upcomg Features", icon="🕒")
+    st.Page(future_ideas, title="Upcoming Features", icon="🕒")
 ]
 
 pg = st.navigation(pages)
