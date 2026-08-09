@@ -246,123 +246,228 @@ def curr_conv():
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
 
-# lengths = {
-#     "Miles": {
-#         "Miles": 1,
-#         "Kilometers": 1.609344,
-#         "Angstroms": 16093440000000,
-#         "Nanometers": 1609344000000,
-#         "Microns": 1609344000,
-#         "Millimeters": 1609344,
-#         "Centimeters": 160934.4,
-#         "Meters": 1609.344,
-#         "Inches": 63360,
-#         "Feet": 5280,
-#         "Yards": 1760,
-#         "Nautical miles": 0.868976
-#     },
-#     "Angstroms": {
-#         "Miles": 0.000000000000062,
-#         "Kilometers": 0.0000000000001,
-#         "Angstroms": 1,
-#         "Nanometers": 0.1,
-#         "Microns": 0.0001,
-#         "Millimeters": 0.0000001,
-#         "Centimeters": 0.00000001,
-#         "Meters": 0.0000000001,
-#         "Inches": 0.000000003937008,
-#         "Feet": 0.000000000328084,
-#         "Yards": 0.000000000109361,
-#         "Nautical miles": 0.000000000000054
-#     },
-#     "Nanometers": {
-#         "Miles": 0.000000000000621,
-#         "Kilometers": 0.000000000001,
-#         "Angstroms": 10,
-#         "Nanometers": 1,
-#         "Microns": 0.001,
-#         "Millimeters": 0.000001,
-#         "Centimeters": 0.0000001,
-#         "Meters": 0.0000001,
-#         "Inches": 0.000000039370079,
-#         "Feet": 0.00000000328084,
-#         "Yards": 0.000000001093613,
-#         "Nautical miles": 0.00000000000054
-#     },
-#     "Microns": {
-#         "Miles": 0.000000000621371,
-#         "Kilometers": 0.000000001,
-#         "Angstroms": 10000,
-#         "Nanometers": 1000,
-#         "Microns": 1,
-#         "Millimeters": 0.001,
-#         "Centimeters": 0.0001,
-#         "Meters": 0.0000001,
-#         "Inches": 0.000039,
-#         "Feet": 0.000003,
-#         "Yards": 0.000001,
-#         "Nautical miles": 0.000000000539957
-#     },
-#     "Millimeters": {
-#         "Miles": 0.000000621371192,
-#         "Kilometers": 0.000001,
-#         "Angstroms": 10000000,
-#         "Nanometers": 1000000,
-#         "Microns": 1000,
-#         "Millimeters": 1,
-#         "Centimeters": 0.1,
-#         "Meters": 0.001,
-#         "Inches": 0.03937,
-#         "Feet": 0.003281,
-#         "Yards": 0.001094,
-#         "Nautical miles": 0.000000539956803
-#     },
-#     "Centimeters": {
-#         "Miles": 0.000006,
-#         "Kilometers": 0.00001,
-#         "Angstroms": 100000000,
-#         "Nanometers": 10000000,
-#         "Microns": 10000,
-#         "Millimeters": 10,
-#         "Centimeters": 1,
-#         "Meters": 0.01,
-#         "Inches": 0.393701,
-#         "Feet": 0.032808,
-#         "Yards": 0.010936,
-#         "Nautical miles": 0.000005
-#     }
-# }
+lengths = {
+    "Miles": {
+        "Miles": 1,
+        "Kilometers": 1.609344,
+        "Angstroms": 16093440000000,
+        "Nanometers": 1609344000000,
+        "Microns": 1609344000,
+        "Millimeters": 1609344,
+        "Centimeters": 160934.4,
+        "Meters": 1609.344,
+        "Inches": 63360,
+        "Feet": 5280,
+        "Yards": 1760,
+        "Nautical miles": 0.868976
+    },
+    "Angstroms": {
+        "Miles": 0.000000000000062,
+        "Kilometers": 0.0000000000001,
+        "Angstroms": 1,
+        "Nanometers": 0.1,
+        "Microns": 0.0001,
+        "Millimeters": 0.0000001,
+        "Centimeters": 0.00000001,
+        "Meters": 0.0000000001,
+        "Inches": 0.000000003937008,
+        "Feet": 0.000000000328084,
+        "Yards": 0.000000000109361,
+        "Nautical miles": 0.000000000000054
+    },
+    "Nanometers": {
+        "Miles": 0.000000000000621,
+        "Kilometers": 0.000000000001,
+        "Angstroms": 10,
+        "Nanometers": 1,
+        "Microns": 0.001,
+        "Millimeters": 0.000001,
+        "Centimeters": 0.0000001,
+        "Meters": 0.0000001,
+        "Inches": 0.000000039370079,
+        "Feet": 0.00000000328084,
+        "Yards": 0.000000001093613,
+        "Nautical miles": 0.00000000000054
+    },
+    "Microns": {
+        "Miles": 0.000000000621371,
+        "Kilometers": 0.000000001,
+        "Angstroms": 10000,
+        "Nanometers": 1000,
+        "Microns": 1,
+        "Millimeters": 0.001,
+        "Centimeters": 0.0001,
+        "Meters": 0.0000001,
+        "Inches": 0.000039,
+        "Feet": 0.000003,
+        "Yards": 0.000001,
+        "Nautical miles": 0.000000000539957
+    },
+    "Millimeters": {
+        "Miles": 0.000000621371192,
+        "Kilometers": 0.000001,
+        "Angstroms": 10000000,
+        "Nanometers": 1000000,
+        "Microns": 1000,
+        "Millimeters": 1,
+        "Centimeters": 0.1,
+        "Meters": 0.001,
+        "Inches": 0.03937,
+        "Feet": 0.003281,
+        "Yards": 0.001094,
+        "Nautical miles": 0.000000539956803
+    },
+    "Centimeters": {
+        "Miles": 0.000006,
+        "Kilometers": 0.00001,
+        "Angstroms": 100000000,
+        "Nanometers": 10000000,
+        "Microns": 10000,
+        "Millimeters": 10,
+        "Centimeters": 1,
+        "Meters": 0.01,
+        "Inches": 0.393701,
+        "Feet": 0.032808,
+        "Yards": 0.010936,
+        "Nautical miles": 0.000005
+    },
+    "Meters": {
+        "Miles": 0.000621,
+        "Kilometers": 0.001,
+        "Angstroms": 10000000000,
+        "Nanometers": 1000000000,
+        "Microns": 1000000,
+        "Millimeters": 1000,
+        "Centimeters": 100,
+        "Meters": 1,
+        "Inches": 39.37008,
+        "Feet": 3.28084,
+        "Yards": 1.093613,
+        "Nautical miles": 0.00054
+    },
+    "Kilometers": {
+        "Miles": 0.621371,
+        "Kilometers": 1,
+        "Angstroms": 10000000000000,
+        "Nanometers": 1000000000000,
+        "Microns": 1000000000,
+        "Millimeters": 1000000,
+        "Centimeters": 100000,
+        "Meters": 1000,
+        "Inches": 39370.08,
+        "Feet": 3280.84,
+        "Yards": 1093.613,
+        "Nautical miles": 0.539957 
+    },
+    "Inches": {
+        "Miles": 0.000016,
+        "Kilometers": 0.00025,
+        "Angstroms": 254000000,
+        "Nanometers": 25400000,
+        "Microns": 25400,
+        "Millimeters": 25.4,
+        "Centimeters": 2.54,
+        "Meters": 0.0254,
+        "Inches": 1,
+        "Feet": 0.083333,
+        "Yards": 0.027778,
+        "Nautical miles": 0.000014 
+    },
+    "Feet": {
+        "Miles": 0.000189,
+        "Kilometers": 0.000305,
+        "Angstroms": 3048000000,
+        "Nanometers": 304800000,
+        "Microns": 304800,
+        "Millimeters": 304.8,
+        "Centimeters": 30.48,
+        "Meters": 0.3048,
+        "Inches": 12,
+        "Feet": 1,
+        "Yards": 0.333333,
+        "Nautical miles": 0.000165 
+    },
+    "Yards": {
+        "Miles": 0.000568,
+        "Kilometers": 0.000914,
+        "Angstroms": 9144000000,
+        "Nanometers": 914400000,
+        "Microns": 914400,
+        "Millimeters": 914.4,
+        "Centimeters": 91.44,
+        "Meters": 0.9144,
+        "Inches": 36,
+        "Feet": 3,
+        "Yards": 1,
+        "Nautical miles": 0.000494 
+    },
+    "Nautical miles": {
+        "Miles": 1.150779,
+        "Kilometers": 1.852,
+        "Angstroms": 18520000000000,
+        "Nanometers": 1852000000000,
+        "Microns": 1852000000,
+        "Millimeters": 1852000,
+        "Centimeters": 185200,
+        "Meters": 1852,
+        "Inches": 72913.39,
+        "Feet": 6076.115,
+        "Yards": 2025.372,
+        "Nautical miles": 1 
+    }
+}
 
 
 def len_conv():
     st.markdown("""
                 # This page or app is under construction 🚧
                 """)
-    # st.title("Length Converter", text_alignment="center")
-    # st.text("Select the conversion units from the following dropdowns and enter the length is text fields accordingly to get the correct result or answers")
-    # def_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown1")
-    # def_value = st.number_input(f"Enter value in {def_unit} here")
-    # conv_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown2")
-    # if st.button("Convert"):
-    #     st.success("Solution calculated")
-    #     if def_unit == "Miles":
-    #         new_val = float(def_value * lengths["Miles"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    #     elif def_unit == "Angstroms":
-    #         new_val = float(def_value * lengths["Angstroms"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    #     elif def_unit == "Nanometers":
-    #         new_val = float(def_value * lengths["Nanometers"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    #     elif def_unit == "Microns":
-    #         new_val = float(def_value * lengths["Microns"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    #     elif def_unit == "Millimeters":
-    #         new_val = float(def_value * lengths["Millimeters"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    #     elif def_unit == "Centimeters":
-    #         new_val = float(def_value * lengths["Centimeters"][conv_unit])
-    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    st.title("Length Converter", text_alignment="center")
+    st.text("Select the conversion units from the following dropdowns and enter the length is text fields accordingly to get the correct result or answers")
+    def_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown1")
+    def_value = st.number_input(f"Enter value in {def_unit} here")
+    conv_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown2")
+    if st.button("Convert"):
+        st.success("Solution calculated")
+        if def_unit == "Miles":
+            new_val = float(def_value * lengths["Miles"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Angstroms":
+            new_val = float(def_value * lengths["Angstroms"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Nanometers":
+            new_val = float(def_value * lengths["Nanometers"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Microns":
+            new_val = float(def_value * lengths["Microns"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Millimeters":
+            new_val = float(def_value * lengths["Millimeters"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Centimeters":
+            new_val = float(def_value * lengths["Centimeters"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Meters":
+            new_val = float(def_value * lengths["Meters"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Kilometers":
+            new_val = float(def_value * lengths["Kilometers"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Inches":
+            new_val = float(def_value * lengths["Inches"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Feet":
+            new_val = float(def_value * lengths["Feet"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Yards":
+            new_val = float(def_value * lengths["Yards"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+        elif def_unit == "Nautical miles":
+            new_val = float(def_value * lengths["Nautical miles"][conv_unit])
+            st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    
+    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
+    st.button("Register rating")
 
 def future_ideas():
     st.markdown("""
@@ -375,7 +480,7 @@ def future_ideas():
                 - People will be able to plot graphs like line graph, bar graph and pie charts by providing data here
                 - ~~Inbuilt currency converter~~ and volume converter will also be added to the web app. You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
                 - Other converters that will be added to the app are:
-                    1. Length
+                    1. ~~Length~~
                     2. Weight and Mass
                     3. Temperature
                     4. Energy 
