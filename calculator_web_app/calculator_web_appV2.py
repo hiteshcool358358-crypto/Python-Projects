@@ -419,9 +419,6 @@ lengths = {
 
 
 def len_conv():
-    st.markdown("""
-                # This page or app is under construction 🚧
-                """)
     st.title("Length Converter", text_alignment="center")
     st.text("Select the conversion units from the following dropdowns and enter the length is text fields accordingly to get the correct result or answers")
     def_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown1")
