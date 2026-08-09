@@ -274,6 +274,48 @@ def curr_conv():
 #         "Feet": 0.000000000328084,
 #         "Yards": 0.000000000109361,
 #         "Nautical miles": 0.000000000000054
+#     },
+#     "Nanometers": {
+#         "Miles": 0.000000000000621,
+#         "Kilometers": 0.000000000001,
+#         "Angstroms": 10,
+#         "Nanometers": 1,
+#         "Microns": 0.001,
+#         "Millimeters": 0.000001,
+#         "Centimeters": 0.0000001,
+#         "Meters": 0.0000001,
+#         "Inches": 0.000000039370079,
+#         "Feet": 0.00000000328084,
+#         "Yards": 0.000000001093613,
+#         "Nautical miles": 0.00000000000054
+#     },
+#     "Microns": {
+#         "Miles": 0.000000000621371,
+#         "Kilometers": 0.000000001,
+#         "Angstroms": 10000,
+#         "Nanometers": 1000,
+#         "Microns": 1,
+#         "Millimeters": 0.001,
+#         "Centimeters": 0.0001,
+#         "Meters": 0.0000001,
+#         "Inches": 0.000039,
+#         "Feet": 0.000003,
+#         "Yards": 0.000001,
+#         "Nautical miles": 0.000000000539957
+#     },
+#     "Millimeters": {
+#         "Miles": 0.000000621371192,
+#         "Kilometers": 0.000001,
+#         "Angstroms": 10000000,
+#         "Nanometers": 1000000,
+#         "Microns": 1000,
+#         "Millimeters": 1,
+#         "Centimeters": 0.1,
+#         "Meters": 0.001,
+#         "Inches": 0.03937,
+#         "Feet": 0.003281,
+#         "Yards": 0.001094,
+#         "Nautical miles": 0.000000539956803
 #     }
 # }
 
@@ -294,6 +336,15 @@ def len_conv():
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Angstroms":
     #         new_val = def_value * lengths["Angstroms"][conv_unit]
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    #     elif def_unit == "Nanometers":
+    #         new_val = def_value * lengths["Nanometers"][conv_unit]
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    #     elif def_unit == "Microns":
+    #         new_val = def_value * lengths["Microns"][conv_unit]
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    #     elif def_unit == "Millimeters":
+    #         new_val = def_value * lengths["Millimeters"][conv_unit]
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
 
 def future_ideas():
