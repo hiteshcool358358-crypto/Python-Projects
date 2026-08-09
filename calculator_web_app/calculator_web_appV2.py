@@ -316,6 +316,20 @@ def curr_conv():
 #         "Feet": 0.003281,
 #         "Yards": 0.001094,
 #         "Nautical miles": 0.000000539956803
+#     },
+#     "Centimeters": {
+#         "Miles": 0.000006,
+#         "Kilometers": 0.00001,
+#         "Angstroms": 100000000,
+#         "Nanometers": 10000000,
+#         "Microns": 10000,
+#         "Millimeters": 10,
+#         "Centimeters": 1,
+#         "Meters": 0.01,
+#         "Inches": 0.393701,
+#         "Feet": 0.032808,
+#         "Yards": 0.010936,
+#         "Nautical miles": 0.000005
 #     }
 # }
 
@@ -345,6 +359,9 @@ def len_conv():
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Millimeters":
     #         new_val = float(def_value * lengths["Millimeters"][conv_unit])
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    #     elif def_unit == "Centimeters":
+    #         new_val = float(def_value * lengths["Centimeters"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
 
 def future_ideas():
