@@ -114,9 +114,13 @@ def trigonometric():
     elif oper == "Cosecant":
         num1 = st.number_input("Enter the reference angle i.e., theta here")
         if st.button("Calculate"):
-            st.success("Required solution calculated")
-            degree = m.radians(num1)
-            st.text(f"cosec({num1}°) = {1/m.sin(degree)}°")
+            try:
+                st.success("Required solution calculated")
+                degree = m.radians(num1)
+                st.text(f"cosec({num1}°) = {1/m.sin(degree)}°")
+            except ZeroDivisionError:
+                st.text("Undefined")
+            
             
     elif oper == "Secant":
         num1 = st.number_input("Enter the reference angle i.e., theta here")
@@ -128,9 +132,12 @@ def trigonometric():
     elif oper == "Cotangent":
         num1 = st.number_input("Enter the reference angle i.e., theta here")
         if st.button("Calculate"):
-            st.success("Required solution calculated")
-            degree = m.radians(num1)
-            st.text(f"cot({num1}°) = {1/m.tan(num1)}°")
+            try:
+                st.success("Required solution calculated")
+                degree = m.radians(num1)
+                st.text(f"cot({num1}°) = {1/m.tan(degree)}°")
+            except ZeroDivisionError:
+                st.text("Undefined")
 
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
@@ -223,23 +230,71 @@ def curr_conv():
         new_curr = "AUD"
 
     if st.button("Convert"):
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-            rate = data["rates"][new_curr]
-            amt = def_amt * rate
-            st.success("Conversion successful")
-            st.write(f"{def_amt:.2f} {short_curr} = {amt:.2f} {new_curr}")
-        else:
-            st.error("Conversion Failed!")
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                data = response.json()
+                rate = data["rates"][new_curr]
+                amt = def_amt * rate
+                st.success("Conversion successful")
+                st.write(f"{def_amt:.2f} {short_curr} = {amt:.2f} {new_curr}")
+            else:
+                st.error("Conversion Failed!")
+        except requests.exceptions.ConnectionError:
+            st.error("Please connect to an internet connection")
 
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
+
+# lengths = {
+#     "Miles": {
+#         "Miles": 1,
+#         "Kilometers": 1.609344,
+#         "Angstroms": 16093440000000,
+#         "Nanometers": 1609344000000,
+#         "Microns": 1609344000,
+#         "Millimeters": 1609344,
+#         "Centimeters": 160934.4,
+#         "Meters": 1609.344,
+#         "Inches": 63360,
+#         "Feet": 5280,
+#         "Yards": 1760,
+#         "Nautical miles": 0.868976
+#     },
+#     "Angstroms": {
+#         "Miles": 0.000000000000062,
+#         "Kilometers": 0.0000000000001,
+#         "Angstroms": 1,
+#         "Nanometers": 0.1,
+#         "Microns": 0.0001,
+#         "Millimeters": 0.0000001,
+#         "Centimeters": 0.00000001,
+#         "Meters": 0.0000000001,
+#         "Inches": 0.000000003937008,
+#         "Feet": 0.000000000328084,
+#         "Yards": 0.000000000109361,
+#         "Nautical miles": 0.000000000000054
+#     }
+# }
+
 
 def len_conv():
     st.markdown("""
                 # This page or app is under construction 🚧
                 """)
+    # st.title("Length Converter", text_alignment="center")
+    # st.text("Select the conversion units from the following dropdowns and enter the length is text fields accordingly to get the correct result or answers")
+    # def_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown1")
+    # def_value = st.number_input(f"Enter value in {def_unit} here")
+    # conv_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown2")
+    # if st.button("Convert"):
+    #     st.success("Solution calculated")
+    #     if def_unit == "Miles":
+    #         new_val = def_value * lengths["Miles"][conv_unit]
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
+    #     elif def_unit == "Angstroms":
+    #         new_val = def_value * lengths["Angstroms"][conv_unit]
+    #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
 
 def future_ideas():
     st.markdown("""
