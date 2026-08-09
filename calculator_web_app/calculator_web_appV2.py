@@ -332,19 +332,19 @@ def len_conv():
     # if st.button("Convert"):
     #     st.success("Solution calculated")
     #     if def_unit == "Miles":
-    #         new_val = def_value * lengths["Miles"][conv_unit]
+    #         new_val = float(def_value * lengths["Miles"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Angstroms":
-    #         new_val = def_value * lengths["Angstroms"][conv_unit]
+    #         new_val = float(def_value * lengths["Angstroms"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Nanometers":
-    #         new_val = def_value * lengths["Nanometers"][conv_unit]
+    #         new_val = float(def_value * lengths["Nanometers"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Microns":
-    #         new_val = def_value * lengths["Microns"][conv_unit]
+    #         new_val = float(def_value * lengths["Microns"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
     #     elif def_unit == "Millimeters":
-    #         new_val = def_value * lengths["Millimeters"][conv_unit]
+    #         new_val = float(def_value * lengths["Millimeters"][conv_unit])
     #         st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
 
 def future_ideas():
