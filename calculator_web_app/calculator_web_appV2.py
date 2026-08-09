@@ -356,7 +356,7 @@ def future_ideas():
                 - Will be adding scientific functions like absolute and fix for Java and QBasic programmers   
                 - People will be able to carry out logarithmic operations in a few months
                 - People will be able to plot graphs like line graph, bar graph and pie charts by providing data here
-                - ~~Inbuilt currency converter and volume converter will also be added to the web app.~~ You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
+                - ~~Inbuilt currency converter~~ and volume converter will also be added to the web app. You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
                 - Other converters that will be added to the app are:
                     1. Length
                     2. Weight and Mass
