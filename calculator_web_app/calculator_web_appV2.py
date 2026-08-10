@@ -167,7 +167,7 @@ def bmi():
     st.button("Register rating")
 
 def curr_conv():
-    st.title("Currency Converter 💱")
+    st.title("Currency Converter")
 
     with st.expander("Expand for help"):
         st.markdown("""
