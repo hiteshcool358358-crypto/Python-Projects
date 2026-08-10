@@ -467,6 +467,11 @@ def len_conv():
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
 
+def weight_mass():
+    st.markdown("""
+                # The page or app is under construction 🚧
+                """)
+
 def future_ideas():
     st.markdown("""
                 ### Future and upcoming plans (as of 08-08-2026)
@@ -501,9 +506,10 @@ pages = [
     st.Page(arithematic, title="Arithematical Operations", icon="➕"),
     st.Page(algebraic, title="Algebraic Operations", icon="🔍"),
     st.Page(trigonometric, title="Trigonometric Operations", icon="📐"),
-    st.Page(bmi, title="BMI Calculator", icon="⚖️"),
+    st.Page(bmi, title="BMI Calculator", icon="👟"),
     st.Page(curr_conv, title="Currency Converter", icon="💱"),
     st.Page(len_conv, title="Length Converter", icon="📏"),
+    st.Page(weight_mass, title="Weight and Mass Converter", icon=":material/balance:"),
     st.Page(future_ideas, title="Upcoming Features", icon="🕒")
 ]
 
