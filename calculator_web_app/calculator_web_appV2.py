@@ -167,7 +167,7 @@ def bmi():
     st.button("Register rating")
 
 def curr_conv():
-    st.title("Currency Converter")
+    st.title("Currency Converter", text_alignment="center")
 
     with st.expander("Expand for help"):
         st.markdown("""
@@ -470,9 +470,7 @@ def len_conv():
     st.button("Register rating")
 
 def weight_mass():
-    st.markdown("""
-                # The page or app is under construction 🚧
-                """)
+    st.title("The page or app is under construction 🚧", text_alignment="center")
 
 def future_ideas():
     st.markdown("""
