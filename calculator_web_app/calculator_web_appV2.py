@@ -471,7 +471,23 @@ def len_conv():
 
 def inter():
     st.title("This page or app is under construction 🚧", text_alignment="center")
-
+    # st.title("Interest Calcuator", text_alignment="center")
+    # InterType = st.selectbox("What type of interest is being charged", ["Select a type of interest", "Simple Interest", "Compound Interest"])
+    # if InterType != "Select a type of interest":
+    #     p = st.number_input("Enter principal here", key="principal")
+    #     r = st.number_input(f"Enter rate% here", key="rate%")
+    #     t = st.number_input("Enter time period here (in years)", key="time_period")
+    #     if st.button(f"Calculate {InterType}"):
+    #         if InterType == "Simple Interest":
+    #             st.success(f"{InterType} Calculated!")
+    #             st.text(f"Simple Interest = {(p*r*t)}")
+    #         elif InterType == "Compound Interest":
+    #             cpType = st.selectbox("Enter the way it has been charged", ["Select it", "Compound Yearly", "Compound half - Yearly"])
+    #             if cpType == "Compounded Yearly":
+    #                 st.text(f"Compound Interest = {(p*(1 + (r/100))**t) - p}")
+    #             elif cpType == "Compounded Half - Yearly":
+    #                 st.text(f"Compound Interest = {(p*(1 + (r/200))**(t*2)) - p}")
+            
 def gst():
     st.title("This page or app is under construction 🚧", text_alignment="center")
 
