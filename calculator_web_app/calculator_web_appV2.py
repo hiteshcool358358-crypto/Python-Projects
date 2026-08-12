@@ -469,8 +469,14 @@ def len_conv():
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
 
+def inter():
+    st.title("This page or app is under construction 🚧", text_alignment="center")
+
+def gst():
+    st.title("This page or app is under construction 🚧", text_alignment="center")
+
 def weight_mass():
-    st.title("The page or app is under construction 🚧", text_alignment="center")
+    st.title("The construction of this page have been posponded for a few weeks. I have been working on an Interest Calculator and GST Calculator (only for Indians).", text_alignment="center")
 
 def future_ideas():
     st.markdown("""
@@ -509,6 +515,8 @@ pages = [
     st.Page(bmi, title="BMI Calculator", icon="👟"),
     st.Page(curr_conv, title="Currency Converter", icon="💱"),
     st.Page(len_conv, title="Length Converter", icon="📏"),
+    st.Page(inter, title="Interest Calculator", icon="🏦"),
+    st.Page(gst, title="GST Calculator", icon="💸"),
     st.Page(weight_mass, title="Weight and Mass Converter", icon=":material/balance:"),
     st.Page(future_ideas, title="Upcoming Features", icon="🕒")
 ]
