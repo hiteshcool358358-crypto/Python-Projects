@@ -1,10 +1,10 @@
 import java.util.*;
 class spy_number {
     public static void main() {
-        Scanner in=new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
         int n, copy1, copy2, s = 0, p = 1;
         System.out.print("Enter a no.: ");
-        n = in.nextInt();
+        n = sc.nextInt();
         copy1 = n;
         copy2 = n;
         while (copy1 > 0) {
@@ -19,5 +19,6 @@ class spy_number {
             System.out.println(n + " is a spy number.");
         else
             System.out.println(n + " is not a spy number.");
+        sc.close();
     }
 }
