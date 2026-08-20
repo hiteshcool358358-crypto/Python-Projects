@@ -11,7 +11,6 @@ public class special_num {
             fact = 1;
             for (int i = 1; i <= digit; i++)
                 fact *= i;
-
             special += fact;
             copy /= 10;
         }
