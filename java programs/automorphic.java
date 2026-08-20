@@ -9,7 +9,7 @@ public class automorphic {
         System.out.print("Enter a no.: ");
         n = sc.nextInt();
         sqr = Math.pow(n, 2);
-        int sqr_int = (int) sqr;
+        int sqr_int = (int) sqr; // not required read above
         copy1 = n;
         while (copy1 > 0) {
             c++;
