@@ -470,26 +470,36 @@ def len_conv():
     st.button("Register rating")
 
 def inter():
-    st.title("This page or app is under construction 🚧", text_alignment="center")
-    # st.title("Interest Calcuator", text_alignment="center")
-    # InterType = st.selectbox("What type of interest is being charged", ["Select a type of interest", "Simple Interest", "Compound Interest"])
-    # if InterType != "Select a type of interest":
-    #     p = st.number_input("Enter principal here", key="principal")
-    #     r = st.number_input(f"Enter rate% here", key="rate%")
-    #     t = st.number_input("Enter time period here (in years)", key="time_period")
-    #     if st.button(f"Calculate {InterType}"):
-    #         if InterType == "Simple Interest":
-    #             st.success(f"{InterType} Calculated!")
-    #             st.text(f"Simple Interest = {(p*r*t)}")
-    #         elif InterType == "Compound Interest":
-    #             cpType = st.selectbox("Enter the way it has been charged", ["Select it", "Compound Yearly", "Compound half - Yearly"])
-    #             if cpType == "Compounded Yearly":
-    #                 st.text(f"Compound Interest = {(p*(1 + (r/100))**t) - p}")
-    #             elif cpType == "Compounded Half - Yearly":
-    #                 st.text(f"Compound Interest = {(p*(1 + (r/200))**(t*2)) - p}")
+    st.title("Interest Calcuator", text_alignment="center")
+    InterType = st.selectbox("Select the type of Interest you are calculating", ["Type of interest", "Simple Interest", "Compound Interest"])
+    if (InterType == "Simple Interest"):
+        p = st.number_input("Enter principal here (in ₹)", min_value=0.00)
+        r = st.number_input("Enter rate here (in p.a.)", min_value=0.00)
+        t = st.number_input("Enter time here (in years)", min_value=0.00)
+        if st.button(f"Calculate {InterType}"):
+            st.success(f"{InterType} calculated")
+            st.text(f"Simple Interest = ₹ {p*r*t}")
+            st.text(f"Amount = ₹ {p+(p*r*t)}")
+    elif (InterType == "Compound Interest"):
+        p = st.number_input("Enter principal here (in ₹)", min_value=0.00)
+        r = st.number_input("Enter rate here (in p.a.)", min_value=0.00)
+        t = st.number_input("Enter time here (in years)", min_value=0.00)
+        ci_type = st.selectbox("Compound interest have been compounded:", ["Select below", "Yearly", "Half-Yearly"])
+        if st.button(f"Calculate {InterType}"):
+            if (ci_type == "Yearly"):
+                st.success(f"{InterType} calculated")
+                st.text(f"Compound Interest = ₹ {(p*((1+(r/100))**t))-p}")
+                st.text(f"Amount = ₹ {p*((1+(r/100))**t)}")
+            elif (ci_type == "Half-Yearly"):
+                st.success(f"{InterType} calculated")
+                st.text(f"Compound Interest = ₹ {(p*((1+(r/200))**(t*2)))-p}")
+                st.text(f"Amount = ₹ {p*((1+(r/200))**(t*2))}")
+            else:
+                st.error("Please select the type of compound interest reckoned")
+            
             
 def gst():
-    st.title("This page or app is under construction 🚧", text_alignment="center")
+    st.title("This page or app is under construction 🚧. It is only for users calculating interest being alligned to those imposed by the Indian Government", text_alignment="center")
 
 def weight_mass():
     st.title("The construction of this page have been posponded for a few weeks. I have been working on an Interest Calculator and GST Calculator (only for Indians).", text_alignment="center")
