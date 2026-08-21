@@ -500,6 +500,7 @@ def inter():
             
 def gst():
     st.title("This page or app is under construction 🚧. It is only for users calculating interest being alligned to those imposed by the Indian Government", text_alignment="center")
+    st.subheader("Work has been started on this and it will be live by next 20 - 25 days. Till then, stay tuned")
 
 def weight_mass():
     st.title("The construction of this page have been posponded for a few weeks. I have been working on an Interest Calculator and GST Calculator (only for Indians).", text_alignment="center")
