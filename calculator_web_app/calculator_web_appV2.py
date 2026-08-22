@@ -543,7 +543,7 @@ def gst():
 
 
 def weight_mass():
-    st.title("The construction of this page have been posponded for a few weeks. I have been working on an Interest Calculator and GST Calculator (only for Indians).", text_alignment="center")
+    st.title("Work on this converter has been started. It will be live within the next 1 - 1.5 months", text_alignment="center")
 
 def future_ideas():
     st.markdown("""
