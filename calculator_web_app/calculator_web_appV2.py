@@ -500,7 +500,52 @@ def inter():
             
 def gst():
     st.title("This page or app is under construction 🚧. It is only for users calculating interest being alligned to those imposed by the Indian Government", text_alignment="center")
-    st.subheader("Work has been started on this and it will be live by next 20 - 25 days. Till then, stay tuned")
+    st.subheader("Notification:")
+    st.markdown("""
+                (22.08.2026 at 13:30) Backend and the website structure is ready. It will be live within the next 3 - 4 hours after testings. Till then, stay tuned!
+                """)
+    # st.title("GST Calculator", text_alignment="center")
+    # st.text("This GST calculator is aligned to the gst rates presribed by the Indian Government as of 22.08.2026. Any further chnages announced by the govrnment will be tried to reflect here within 10 - 15 days", text_alignment="center")
+    # amt = st.number_input("Enter the amount here in ₹ (exclusive of any GST or Tax)", min_value=0.00)
+    # tran_type = st.selectbox("Enter the type of transaction", ["Select a type of transaction", "Intra - State", "Inter - State"], key="dropdown1")
+    # gst = st.selectbox(f"Enter the GST% applied to the product", ["Select the rate of GST", 0, 5, 18, 40], key="dropdown2")
+    # if st.button("Calculate amount"):
+    #     if tran_type != "Select a type of transaction" and gst != "Select the rate of GST":
+    #         if tran_type == "Intra - State":
+    #             if gst == 0:
+    #                 st.text(f"CGST: ₹0.00")
+    #                 st.text(f"SGST: ₹0.00")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt}")
+    #             elif gst == 5:
+    #                 st.text(f"CGST: ₹{(0.025*amt):.2f}")
+    #                 st.text(f"SGST: ₹{(0.025*amt):.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.025*amt)*2):.2f}")
+    #             elif gst == 18:
+    #                 st.text(f"CGST: ₹{0.09*amt:.2f}")
+    #                 st.text(f"SGST: ₹{0.09*amt:.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.09*amt)*2):.2f}")
+    #             elif gst == 40:
+    #                 st.text(f"CGST: ₹{0.2*amt:.2f}")
+    #                 st.text(f"SGST: ₹{0.2*amt:.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.2*amt)*2):.2f}")
+    #         elif tran_type == "Inter - State":
+    #             if gst == 0:
+    #                 st.text(f"IGST: ₹0.00")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt}")
+    #             elif gst == 5:
+    #                 st.text(f"IGST: ₹{0.05*amt:.2f:.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.05*amt)):.2f}")
+    #             elif gst == 18:
+    #                 st.text(f"IGST: ₹{0.18*amt:.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.18*amt)):.2f}")
+    #             elif gst == 40:
+    #                 st.text(f"IGST: ₹{0.4*amt:.2f}")
+    #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.4*amt)):.2f}")
+    #     elif tran_type == "Select a type of transaction" and gst == "Select the rate of GST":
+    #         st.error("GST or type of transaction fields have been left blank")
+    #     elif tran_type == "Select a type of transaction" or gst == "Select the rate of GST":
+    #         st.error("GST or type of transaction fields have been left blank")
+
 
 def weight_mass():
     st.title("The construction of this page have been posponded for a few weeks. I have been working on an Interest Calculator and GST Calculator (only for Indians).", text_alignment="center")
