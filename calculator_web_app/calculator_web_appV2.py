@@ -533,7 +533,7 @@ def gst():
     #                 st.text(f"IGST: ₹0.00")
     #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt}")
     #             elif gst == 5:
-    #                 st.text(f"IGST: ₹{0.05*amt:.2f:.2f}")
+    #                 st.text(f"IGST: ₹{0.05*amt:.2f}")
     #                 st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.05*amt)):.2f}")
     #             elif gst == 18:
     #                 st.text(f"IGST: ₹{0.18*amt:.2f}")
