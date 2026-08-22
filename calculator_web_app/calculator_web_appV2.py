@@ -503,7 +503,7 @@ def gst():
     st.text("This GST calculator is aligned to the gst rates presribed by the Indian Government as of 22.08.2026. Any further chnages announced by the govrnment will be tried to reflect here within 10 - 15 days", text_alignment="center")
     amt = st.number_input("Enter the amount here in ₹ (exclusive of any GST or Tax)", min_value=0.00)
     tran_type = st.selectbox("Enter the type of transaction", ["Select a type of transaction", "Intra - State", "Inter - State"], key="dropdown1")
-    gst = st.selectbox(f"Enter the GST% applied to the product", ["Select the rate of GST", 0, 5, 18, 40], key="dropdown2")
+    gst = st.selectbox(f"Enter the GST% applied to the product", ["Select the rate of GST", "0%", "5%", "18%", "40%"], key="dropdown2")
     if st.button("Calculate amount"):
         if tran_type != "Select a type of transaction" and gst != "Select the rate of GST":
             if tran_type == "Intra - State":
