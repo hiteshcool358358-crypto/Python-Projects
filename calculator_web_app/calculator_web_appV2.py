@@ -507,33 +507,33 @@ def gst():
     if st.button("Calculate amount"):
         if tran_type != "Select a type of transaction" and gst != "Select the rate of GST":
             if tran_type == "Intra - State":
-                if gst == 0:
+                if gst == "0%":
                     st.text(f"CGST: ₹0.00")
                     st.text(f"SGST: ₹0.00")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt:.2f}")
-                elif gst == 5:
+                elif gst == "5%":
                     st.text(f"CGST: ₹{(0.025*amt):.2f}")
                     st.text(f"SGST: ₹{(0.025*amt):.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.025*amt)*2):.2f}")
-                elif gst == 18:
+                elif gst == "18%":
                     st.text(f"CGST: ₹{0.09*amt:.2f}")
                     st.text(f"SGST: ₹{0.09*amt:.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.09*amt)*2):.2f}")
-                elif gst == 40:
+                elif gst == "40%":
                     st.text(f"CGST: ₹{0.2*amt:.2f}")
                     st.text(f"SGST: ₹{0.2*amt:.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.2*amt)*2):.2f}")
             elif tran_type == "Inter - State":
-                if gst == 0:
+                if gst == "0%":
                     st.text(f"IGST: ₹0.00")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt:.2f}")
-                elif gst == 5:
+                elif gst == "5%":
                     st.text(f"IGST: ₹{0.05*amt:.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.05*amt)):.2f}")
-                elif gst == 18:
+                elif gst == "18%":
                     st.text(f"IGST: ₹{0.18*amt:.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.18*amt)):.2f}")
-                elif gst == 40:
+                elif gst == "40%":
                     st.text(f"IGST: ₹{0.4*amt:.2f}")
                     st.text(f"Total amound to be paid (inclusive of all taxes and GST): ₹{amt+((0.4*amt)):.2f}")
         elif tran_type == "Select a type of transaction" and gst == "Select the rate of GST":
