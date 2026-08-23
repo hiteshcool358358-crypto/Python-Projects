@@ -546,7 +546,7 @@ def gst():
 
 
 def weight_mass():
-    st.title("Work on this converter has been started. It will be live within the next 1 - 1.5 months", text_alignment="center")
+    st.title("Work on this converter has been again been postponded for a few weeks for the developement of the currency converter (https://web-calculator1714.streamlit.app/curr_conv). 20 more currencies will be added for conversions.", text_alignment="center")
 
 def future_ideas():
     st.markdown("""
