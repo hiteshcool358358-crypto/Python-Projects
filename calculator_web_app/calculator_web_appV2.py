@@ -69,7 +69,7 @@ def algebraic():
         num2 = st.number_input("Enter the power here")
         if st.button("Calculate"):
             st.success("Required solution calculated")
-            st.text(f"{num1} ^ {num2} = {num1 * num2}")
+            st.text(f"{num1} ^ {num2} = {num1 ** num2}")
             
     elif oper == "Square root":
         num1 = st.number_input("Enter the number here")
@@ -178,7 +178,7 @@ def curr_conv():
                     - You should be connected to an internet or ethernet connection
                     - If it doesn't work, try using it with a vpn
                     """)
-    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="first dropdown")
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="first dropdown")
 
     if def_curr == "United States Dollar":
         short_curr = "USD"
@@ -210,9 +210,69 @@ def curr_conv():
     elif def_curr == "Australian Dollar":
         short_curr = "AUD"
         url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Swiss Franc":
+        short_curr = "CHF"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Chinese Yuan (Renminbi)":
+        short_curr = "CNY"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
+    elif def_curr == "Hong Kong Dollar":
+        short_curr = "HKD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "New Zealand Dollar":
+        short_curr = "NZD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "South Korean Won":
+        short_curr = "KRW"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Russian Ruble":
+        short_curr = "RUB"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Brazilian Real":
+        short_curr = "BRL"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Mexican Peso":
+        short_curr = "MXN"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "South African Rand":
+        short_curr = "ZAR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Saudi Riyal":
+        short_curr = "SAR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Qatari Riyal":
+        short_curr = "QAR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Kuwaiti Dinar":
+        short_curr = "KWD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
+    elif def_curr == "Bahraini Dinar":
+        short_curr = "BHD"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Omani Rial":
+        short_curr = "OMR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Thai Baht":
+        short_curr = "THB"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Malaysian Ringgit":
+        short_curr = "MYR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Indonesian Rupiah":
+        short_curr = "IDR"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Turkish Lira":
+        short_curr = "TRY"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Norwegian Krone":
+        short_curr = "NOK"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
+    elif def_curr == "Swedish Krona":
+        short_curr = "SEK"
+        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
 
     def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
-    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="second dropdown")
+    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="second dropdown")
 
     if conv_curr == "United States Dollar":
         new_curr = "USD"   
@@ -289,7 +349,7 @@ lengths = {
         "Microns": 0.001,
         "Millimeters": 0.000001,
         "Centimeters": 0.0000001,
-        "Meters": 0.0000001,
+        "Meters": 0.000000001,
         "Inches": 0.000000039370079,
         "Feet": 0.00000000328084,
         "Yards": 0.000000001093613,
@@ -324,7 +384,7 @@ lengths = {
         "Nautical miles": 0.000000539956803
     },
     "Centimeters": {
-        "Miles": 0.000006,
+        "Miles": 0.00000621371,
         "Kilometers": 0.00001,
         "Angstroms": 100000000,
         "Nanometers": 10000000,
@@ -481,8 +541,8 @@ def inter():
         t = st.number_input("Enter time here (in years)", min_value=0.00)
         if st.button(f"Calculate {InterType}"):
             st.success(f"{InterType} calculated")
-            st.text(f"Simple Interest = ₹ {p*r*t}")
-            st.text(f"Amount = ₹ {p+(p*r*t)}")
+            st.text(f"Simple Interest = ₹ {(p*r*t)/100}")
+            st.text(f"Amount = ₹ {p+((p*r*t)/100)}")
     elif (InterType == "Compound Interest"):
         p = st.number_input("Enter principal here (in ₹)", min_value=0.00)
         r = st.number_input("Enter rate here (in p.a.)", min_value=0.00)
