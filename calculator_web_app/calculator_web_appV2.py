@@ -178,8 +178,8 @@ def curr_conv():
                     - You should be connected to an internet or ethernet connection
                     - If it doesn't work, try using it with a vpn
                     """)
-    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="first dropdown")
-
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="first dropdown")
+    # , "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona" is required to be added in the dropdown
     if def_curr == "United States Dollar":
         short_curr = "USD"
         url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
@@ -272,8 +272,8 @@ def curr_conv():
     #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
 
     def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
-    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="second dropdown")
-
+    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="second dropdown")
+    # , "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona" is require to be added in the dropdown
     if conv_curr == "United States Dollar":
         new_curr = "USD"   
     elif conv_curr == "Indian Rupee":
