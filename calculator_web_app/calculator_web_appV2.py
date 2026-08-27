@@ -619,6 +619,9 @@ def lang_trans():
                 src = def_lang.lower()
             st.text("Translated text:")
             st.text(gt(source=src, target=trans_lang.lower()).translate(def_text))
+        st.html("""
+                <p style="font-size: 60%;"><strong>Third-Party Software</strong><br>This application uses <strong>deep-translator</strong>, an open-source Python library distributed under the MIT License.<br>Copyright © 2020–present, Nidhal Baccouri.<br>This application also uses the GoogleTranslator functionality provided through deep-translator. Use of the underlying translation service is subject to the applicable terms of that service.</p>
+                """)
 
 def weight_mass():
     st.title("Work on this converter has been again been postponded for a few weeks for the developement of a translator", text_alignment="center")
