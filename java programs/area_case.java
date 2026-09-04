@@ -3,9 +3,9 @@ public class area_case {
     public static void main() {
         Scanner sc=new Scanner(System.in);
         System.out.println("a) Area of square");
-        System.out.println("a) Area of rectangle");
-        System.out.println("a) Area of right angled triangle");
-        System.out.println("Enter your choice: ");
+        System.out.println("b) Area of rectangle");
+        System.out.println("c) Area of right angled triangle");
+        System.out.print("Enter your choice: ");
         String c = sc.nextLine();
         switch(c) {
             case "a": System.out.print("Enter side of the square: ");
