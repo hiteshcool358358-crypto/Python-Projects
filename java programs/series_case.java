@@ -2,34 +2,42 @@ import java.util.*;
 public class series_case {
     public static void main() {
         Scanner sc=new Scanner(System.in);
-        int ch;
-        System.out.print("1. 77, 74, 71,...6 terms\n2. 0, 1, 1, 2, 3, 5,...10 terms\n3. 2, 4, 8,...10 terms\n"); 
-        System.out.print("Enter your choice: ");
-        ch = sc.nextInt();
-        switch (ch) {
-            case 1: int a = 77;
+        int c;
+        System.out.println("1. 77, 74, 71,...6 terms");
+        System.out.println("2. 0, 1, 1, 2, 3, 5,...10 terms");
+        System.out.println("3. 2, -4, 6, -8,...10 terms");
+        System.out.print("Enter choice: ");
+        c = sc.nextInt();
+        switch (c) {
+            case 1: int value = 77;
             for (int i = 1; i <= 6; i++) {
-                System.out.println(a);
-                a -= 3;
-            }
-            break;
-            case 2: int x = 0;
-            int y = 1;
-            System.out.println(x);
-            System.out.println(y);
-            for (int i = 1; i <= 8; i++) {
-                int value = x + y;
                 System.out.println(value);
-                x = y;
-                y = value;
+                value-=3;
             }
             break;
-            case 3: int m = 2;
+            case 2: int a = 0, b = 1, n;
+            System.out.println(a);
+            System.out.println(b);
             for (int i = 1; i <= 10; i++) {
-                System.out.println(m);
-                m += 2;
+                n = a + b;
+                System.out.println(n);
+                a = b;
+                b = n;
             }
             break;
+            case 3: int term = 2;
+            for (int i = 1; i <= 10; i++) {
+                term = 2 * i;
+                if (i % 2 == 0){
+                    term = -(term);
+                }
+                else {
+                    continue;
+                }
+                System.out.println(term);
+            }
+            break;
+            default: System.out.println("Invalid choice");
         }
         sc.close();
     }
