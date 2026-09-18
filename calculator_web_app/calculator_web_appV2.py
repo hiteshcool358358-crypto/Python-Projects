@@ -533,6 +533,8 @@ def gst():
             st.error("GST or type of transaction fields have been left blank")
         elif tran_type == "Select a type of transaction" or gst == "Select the rate of GST":
             st.error("GST or type of transaction fields have been left blank")
+    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
+    st.button("Register rating")
 
 def weight_mass():
     st.title("The development of this tool has been started", text_alignment="center")
