@@ -605,24 +605,6 @@ def gst():
         elif tran_type == "Select a type of transaction" or gst == "Select the rate of GST":
             st.error("GST or type of transaction fields have been left blank")
 
-def lang_trans():
-        st.title("Language Translator", text_alignment="center")
-        col1, col2 = st.columns(2)
-        with col1:
-            def_lang = st.selectbox("Translate from:", ["Auto Detect", "Spanish", "Hindi", "English", "Chinese (simplified)", "Chinese (traditional)", "Afrikaans", "Bulgarian"], key="dropdown1")
-            def_text = st.text_input(label="Enter text")
-        with col2:  
-            trans_lang = st.selectbox("Translate to:", ["Spanish", "Hindi", "English", "Chinese (simplified)", "Chinese (traditional)", "Afrikaans", "Bulgarian"], key="dropdown2")
-            if (def_lang == "Auto Detect"):
-                src = "auto"
-            else:
-                src = def_lang.lower()
-            st.text("Translated text:")
-            st.text(gt(source=src, target=trans_lang.lower()).translate(def_text))
-        st.html("""
-                <p style="font-size: 60%;"><strong>Third-Party Software</strong><br>This application uses <strong>deep-translator</strong>, an open-source Python library distributed under the MIT License.<br>Copyright © 2020–present, Nidhal Baccouri.<br>This application also uses the GoogleTranslator functionality provided through deep-translator. Use of the underlying translation service is subject to the applicable terms of that service.</p>
-                """)
-
 def weight_mass():
     st.title("Work on this converter has been again been postponded for a few weeks for the developement of a translator", text_alignment="center")
 
@@ -665,7 +647,6 @@ pages = [
     st.Page(len_conv, title="Length Converter", icon="📏"),
     st.Page(inter, title="Interest Calculator", icon="🏦"),
     st.Page(gst, title="GST Calculator", icon="💸"),
-    st.Page(lang_trans, title="Language Translator", icon=":material/language:"),
     st.Page(weight_mass, title="Weight and Mass Converter", icon=":material/balance:"),
     st.Page(future_ideas, title="Upcoming Features", icon="🕒")
 ]
