@@ -7,4 +7,3 @@ sympy
 requests
 scipy
 flet
-deep_translator

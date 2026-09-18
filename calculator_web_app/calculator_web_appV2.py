@@ -3,7 +3,6 @@
 import streamlit as st
 import math as m
 import requests
-from deep_translator import GoogleTranslator as gt
 
 def about():
     st.title("Basic and Advanced Calculator", text_alignment="center")
@@ -11,7 +10,7 @@ def about():
         st.markdown("""
                     #### Guide:
                     - You can select the kind of operation you want to carry out or the feature you want to use from the sidebar
-                    - Operations and features provided as of 22-08-2026 are:
+                    - Operations and features provided as of 18-09-2026 are:
                         1. Arithematical operations
                         2. Algebraic operations
                         3. Trigonometric operations
@@ -19,16 +18,16 @@ def about():
                         5. Currency Converter
                         6. Length Converter
                         7. Interest Calculator
-                        8. GST Calculator (aligned to the gst rates prescribed by the Indian Government)
+                        8. GST Calculator (aligned to the gst rates prescribed by the Indian Government as of 18-09-2026)
                         9. Weight and Mass Converter (under construction)
                     - You can check the source code by clicking on the github icon appearing on the ribbon right at the top right corner
                     """)
-    st.markdown("A quality product created by **Hitesh Kumar**.")
+    st.markdown("A quality product created and regularly maintained by **Hitesh Kumar**.")
 
 def arithematic():
     st.title("Arithematic Calculator", text_alignment="center")
-    st.text("You can carry out the supported arithematical operation here by selecting th operand from the dropdown appearing below")    
-    oper = st.selectbox("Enter your operand here:", ["Operand","Addition", "Subtraction", "Mulitplication", "Division"])
+    st.text("You can carry out the supported arithematical operation here by selecting th operand from the dropdown appearing below:")    
+    oper = st.selectbox("Enter your operand here:", ["Operand","Addition", "Subtraction", "Mulitplication", "Division", "Remainder"])
     if oper == "Addition":
         num1 = st.number_input("Enter the first number here")
         num2 = st.number_input("Enter the second number here")
@@ -55,7 +54,20 @@ def arithematic():
         num2 = st.number_input("Enter the second number here")
         if st.button("Calculate"):
             st.success("Required solution calculated")
-            st.text(f"{num1} / {num2} = {num1 / num2}")
+            try:
+                st.text(f"{num1}/{num2} = {(num1/num2)}")
+            except ZeroDivisionError:
+                st.text(f"Cannot divide {num1} by 0")
+            
+    elif oper == "Remainder":
+        num1 = st.number_input("Enter the first number here")
+        num2 = st.number_input("Enter the second number here")
+        if st.button("Calculate"):
+            st.success("Required solution calculated")
+            try:
+                st.text(f"{num1}%{num2} = {m.fmod(num1, num2)}")
+            except ZeroDivisionError:
+                st.text(f"Cannot divide {num1} by 0")
 
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
@@ -151,7 +163,9 @@ def trigonometric():
 
 def bmi():
     st.title("BMI Calculator", text_alignment="center")
-    st.text("Enter your wight in kgs and height in cms below to get to know your BMI. Our app will automatically tell that whether you are underweight, overweight, normal or obese")
+    st.html("""
+    <p>Enter your weight in kgs and height in cms below to get to know your BMI. The app will automatically tell that whether you are underweight, overweight, normal or obese. In case if you don't know your height in some other unit, refer to my <a href= https://web-calculator1714.streamlit.app/len_conv>length converter</a>.</p>
+    """)
     weight = float(st.number_input("Enter your weight in kgs", min_value=0.00))
     height = float(st.number_input("Enter your height in cms", min_value=0.00))
     if st.button("Calculate BMI"):
@@ -170,6 +184,39 @@ def bmi():
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
 
+currencies = {
+    "United States Dollar": "USD", 
+    "Indian Rupee": "INR",
+    "Japanese Yen": "JPY", 
+    "Great British Pound": "GBP", 
+    "Euro": "EUR", 
+    "Pakistani Rupee": "PKR",
+    "UAE Dirham": "AED",
+    "Singapore Dollar": "SGD",
+    "Canadian Dollar": "CAD", 
+    "Australian Dollar": "AUD", 
+    "Swiss Franc": "CHF", 
+    "Chinese Yuan (Renminbi)": "CNY", 
+    "Hong Kong Dollar": "HKD", 
+    "New Zealand Dollar": "NZD", 
+    "South Korean Won": "KRW", 
+    "Russian Ruble": "RUB", 
+    "Brazilian Real": "BRL", 
+    "Mexican Peso": "MXN", 
+    "South African Rand": "ZAR", 
+    "Saudi Riyal": "SAR", 
+    "Qatari Riyal": "QAR", 
+    "Kuwaiti Dinar": "KWD", 
+    "Bahraini Dinar": "BHD", 
+    "Omani Rial": "OMR", 
+    "Thai Baht": "THB", 
+    "Malaysian Ringgit": "MYR", 
+    "Indonesian Rupiah": "IDR", 
+    "Turkish Lira": "TRY", 
+    "Norwegian Krone": "NOK", 
+    "Swedish Krona": "SEK" 
+}
+
 def curr_conv():
     st.title("Currency Converter", text_alignment="center")
 
@@ -179,137 +226,17 @@ def curr_conv():
                     - You should be connected to an internet or ethernet connection
                     - If it doesn't work, try using it with a vpn
                     """)
-    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="first dropdown")
-    # , "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona" is required to be added in the dropdown
-    if def_curr == "United States Dollar":
-        short_curr = "USD"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Indian Rupee":
-        short_curr = "INR"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
-    elif def_curr == "Japanese Yen":
-        short_curr = "JPY"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Great British Pound":
-        short_curr = "GBP"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Euro":
-        short_curr = "EUR"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Pakistani Rupee":
-        short_curr = "PKR"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "UAE Dhiram":
-        short_curr = "AED"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Singapore Dollar":
-        short_curr = "SGD"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Canadian Dollar":
-        short_curr = "CAD"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    elif def_curr == "Australian Dollar":
-        short_curr = "AUD"
-        url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Swiss Franc":
-    #     short_curr = "CHF"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Chinese Yuan (Renminbi)":
-    #     short_curr = "CNY"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
-    # elif def_curr == "Hong Kong Dollar":
-    #     short_curr = "HKD"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "New Zealand Dollar":
-    #     short_curr = "NZD"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "South Korean Won":
-    #     short_curr = "KRW"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Russian Ruble":
-    #     short_curr = "RUB"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Brazilian Real":
-    #     short_curr = "BRL"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Mexican Peso":
-    #     short_curr = "MXN"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "South African Rand":
-    #     short_curr = "ZAR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Saudi Riyal":
-    #     short_curr = "SAR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Qatari Riyal":
-    #     short_curr = "QAR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Kuwaiti Dinar":
-    #     short_curr = "KWD"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"        
-    # elif def_curr == "Bahraini Dinar":
-    #     short_curr = "BHD"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Omani Rial":
-    #     short_curr = "OMR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Thai Baht":
-    #     short_curr = "THB"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Malaysian Ringgit":
-    #     short_curr = "MYR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Indonesian Rupiah":
-    #     short_curr = "IDR"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Turkish Lira":
-    #     short_curr = "TRY"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Norwegian Krone":
-    #     short_curr = "NOK"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-    # elif def_curr == "Swedish Krona":
-    #     short_curr = "SEK"
-    #     url = f"https://api.exchangerate-api.com/v4/latest/{short_curr}"
-
-    def_amt = st.number_input("Enter the amount for conversion:", min_value=0.00)
-    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dhiram", "Singapore Dollar", "Canadian Dollar", "Australian Dollar"], key="second dropdown")
-    # , "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona" is require to be added in the dropdown
-    if conv_curr == "United States Dollar":
-        new_curr = "USD"   
-    elif conv_curr == "Indian Rupee":
-        new_curr = "INR"  
-    elif conv_curr == "Japanese Yen":
-        new_curr = "JPY"
-    elif conv_curr == "Great British Pound":
-        new_curr = "GBP"
-    elif conv_curr == "Euro":
-        new_curr = "EUR"
-    elif conv_curr == "Pakistani Rupee":
-        new_curr = "PKR"
-    elif conv_curr == "UAE Dhiram":
-        new_curr = "AED"
-    elif conv_curr == "Singapore Dollar":
-        new_curr = "SGD"
-    elif conv_curr == "Canadian Dollar":
-        new_curr = "CAD"
-    elif conv_curr == "Australian Dollar":
-        new_curr = "AUD"
-
+    def_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dirham", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="first dropdown")
+    conv_amt = st.number_input("Enter the amount for conversion: ", min_value=0.00)
+    conv_curr = st.selectbox("Enter the currency in which you want to enter the amount of conversion:", ["United States Dollar", "Indian Rupee", "Japanese Yen", "Great British Pound", "Euro", "Pakistani Rupee", "UAE Dirham", "Singapore Dollar", "Canadian Dollar", "Australian Dollar", "Swiss Franc", "Chinese Yuan (Renminbi)", "Hong Kong Dollar", "New Zealand Dollar", "South Korean Won", "Russian Ruble", "Brazilian Real", "Mexican Peso", "South African Rand", "Saudi Riyal", "Qatari Riyal", "Kuwaiti Dinar", "Bahraini Dinar", "Omani Rial", "Thai Baht", "Malaysian Ringgit", "Indonesian Rupiah", "Turkish Lira", "Norwegian Krone", "Swedish Krona"], key="second dropdown")
     if st.button("Convert"):
-        try:
-            response = requests.get(url)
-            if response.status_code == 200:
-                data = response.json()
-                rate = data["rates"][new_curr]
-                amt = def_amt * rate
-                st.success("Conversion successful")
-                st.write(f"{def_amt:.2f} {short_curr} = {amt:.2f} {new_curr}")
-            else:
-                st.error("Conversion Failed!")
-        except requests.exceptions.ConnectionError:
-            st.error("Please connect to an internet connection")
-
+        st.success("Conversion successful")
+        url = f"https://api.exchangerate-api.com/v4/latest/{currencies[def_curr]}"
+        response = requests.get(url)
+        if (response.status_code == 200):
+            dictionary = response.json()
+            rate = dictionary["rates"][(currencies[conv_curr])]
+            st.text(f"{conv_amt:.2f} {currencies[def_curr]} = {(conv_amt*rate):.2f} {currencies[conv_curr]}")
     st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
     st.button("Register rating")
 
@@ -487,7 +414,7 @@ lengths = {
 
 def len_conv():
     st.title("Length Converter", text_alignment="center")
-    st.text("Select the conversion units from the following dropdowns and enter the length is text fields accordingly to get the correct result or answers")
+    st.text("Select the conversion units from the following dropdowns and enter the length in the text fields accordingly to get the correct result or answers")
     def_unit = st.selectbox("Convert from:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown1")
     def_value = st.number_input(f"Enter value in {def_unit} here")
     conv_unit = st.selectbox("Convert to:", ["Miles", "Kilometers", "Angstroms", "Nanometers", "Microns", "Millimeters", "Centimeters", "Meters", "Inches", "Feet", "Yards", "Nautical miles"], key="dropdown2")
@@ -560,11 +487,13 @@ def inter():
                 st.text(f"Amount = ₹ {p*((1+(r/200))**(t*2))}")
             else:
                 st.error("Please select the type of compound interest reckoned")
+    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
+    st.button("Register rating")
             
             
 def gst():
     st.title("GST Calculator", text_alignment="center")
-    st.text("This GST calculator is aligned to the gst rates presribed by the Indian Government as of 22.08.2026. Any further chnages announced by the govrnment will be tried to reflect here within 10 - 15 days", text_alignment="center")
+    st.text("This GST calculator is aligned to the gst rates presribed by the Indian Government as of 22.08.2026. Any further chnages announced by the govrnment will be tried to reflect here within 10 - 15 days")
     amt = st.number_input("Enter the amount here in ₹ (exclusive of any GST or Tax)", min_value=0.00)
     tran_type = st.selectbox("Enter the type of transaction", ["Select a type of transaction", "Intra - State", "Inter - State"], key="dropdown1")
     gst = st.selectbox(f"Enter the GST% applied to the product", ["Select the rate of GST", "0%", "5%", "18%", "40%"], key="dropdown2")
@@ -606,21 +535,20 @@ def gst():
             st.error("GST or type of transaction fields have been left blank")
 
 def weight_mass():
-    st.title("Work on this converter has been again been postponded for a few weeks for the developement of a translator", text_alignment="center")
+    st.title("The development of this tool has been started", text_alignment="center")
 
 def future_ideas():
     st.markdown("""
-                ### Future and upcoming plans (as of 08-08-2026)
+                ### Future and upcoming plans (as of 18-09-2026)
 
                 - ~~Have decided to add an inbuilt bmi calculator~~
-                - Scientific operations like mod will be added
+                - ~~Scientific operations like mod will be added~~
+                - ~~Inbuilt currency converter~~ and volume converter will also be added to the web app. You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
                 - Will be adding scientific functions like absolute and fix for Java and QBasic programmers   
                 - People will be able to carry out logarithmic operations in a few months
-                - People will be able to plot graphs like line graph, bar graph and pie charts by providing data here
-                - ~~Inbuilt currency converter~~ and volume converter will also be added to the web app. You can visit my separate currency converter web app on **https://currency-converter1714.streamlit.app**
                 - Other converters that will be added to the app are:
                     1. ~~Length~~
-                    2. Weight and Mass
+                    2. Weight and Mass (Work Started)
                     3. Temperature
                     4. Energy 
                     5. Area
