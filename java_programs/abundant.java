@@ -6,11 +6,11 @@ public class abundant {
         int n = sc.nextInt(), s = 0;
         for (int i = 1; i < n; i++) {
             if (n % i == 0)
-                s++;
+                s =+ i;
             else
                 continue;
         }
-        if (s > 0) 
+        if (s > n) 
             System.out.println(n + " is an abundant no.");
         else
             System.out.println(n + " is not an abundant no.");
