@@ -1,4 +1,4 @@
-public class nat_nos {
+public class natural_nos {
     public static void main() {
         int i = 1;
         while (i <= 10) {
