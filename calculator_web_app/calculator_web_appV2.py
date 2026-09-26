@@ -69,10 +69,6 @@ def arithematic():
             except ZeroDivisionError:
                 st.text(f"Cannot divide {num1} by 0")
 
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
-            
-
 def algebraic():
     st.title("Algebraic Calculator", text_alignment="center")
     st.text("You can carry out the supported algebraic operation here by selecting th operand from the dropdown appearing below")    
@@ -101,9 +97,6 @@ def algebraic():
         if st.button("Calculate"):
             st.success("Required solution calculated")
             st.text(f"The factorial of {num1} is {m.factorial(num1)}.")
-
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
 
 def trigonometric():
     st.title("Trigonometric Calculator", text_alignment="center")
@@ -158,9 +151,6 @@ def trigonometric():
             except ZeroDivisionError:
                 st.text("Undefined")
 
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
-
 def bmi():
     st.title("BMI Calculator", text_alignment="center")
     st.html("""
@@ -180,9 +170,6 @@ def bmi():
             st.text("You are overweight.")
         else:
             st.text("You are obese.")
-
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
 
 currencies = {
     "United States Dollar": "USD", 
@@ -237,8 +224,6 @@ def curr_conv():
             dictionary = response.json()
             rate = dictionary["rates"][(currencies[conv_curr])]
             st.text(f"{conv_amt:.2f} {currencies[def_curr]} = {(conv_amt*rate):.2f} {currencies[conv_curr]}")
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
 
 lengths = {
     "Miles": {
@@ -456,9 +441,6 @@ def len_conv():
         elif def_unit == "Nautical miles":
             new_val = float(def_value * lengths["Nautical miles"][conv_unit])
             st.text(f"{def_value} {def_unit} = {new_val} {conv_unit}")
-    
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
 
 def inter():
     st.title("Interest Calcuator", text_alignment="center")
@@ -487,9 +469,6 @@ def inter():
                 st.text(f"Amount = ₹ {p*((1+(r/200))**(t*2))}")
             else:
                 st.error("Please select the type of compound interest reckoned")
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
-            
             
 def gst():
     st.title("GST Calculator", text_alignment="center")
@@ -533,11 +512,15 @@ def gst():
             st.error("GST or type of transaction fields have been left blank")
         elif tran_type == "Select a type of transaction" or gst == "Select the rate of GST":
             st.error("GST or type of transaction fields have been left blank")
-    st.slider("Plese give us a rating out of 10", min_value=0, max_value=10)
-    st.button("Register rating")
 
+WeightMass = {
+    "Carats": {
+        "Carats": 1.0,
+    }
+}
 def weight_mass():
     st.title("The development of this tool has been started", text_alignment="center")
+
 
 def future_ideas():
     st.markdown("""
